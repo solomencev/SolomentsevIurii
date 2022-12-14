@@ -19,7 +19,9 @@ public class SubTest extends AbstractTest {
     public static  Object[][] subCorrectData() {
         return new Object[][] {
                 {10.0, 7.0, 3.0},
-                {8.0, 5.0, 3.0}
+                {8.0, 5.0, 3.0},
+                {0.00001, 0.0, 0.00001},
+                {1.0, 0.1, 0.9}
         };
     }
 

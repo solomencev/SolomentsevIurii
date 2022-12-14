@@ -7,17 +7,13 @@ import org.testng.annotations.Test;
 
 public class MultTest extends AbstractTest {
 
-    @Test
-    public void multTest() {
-        double res = calculator.mult(3, 2);
-        assertThat(res).isEqualTo(6);
-    }
-
     @DataProvider
-    public static  Object[][] multCorrectData() {
+    public static Object[][] multCorrectData() {
         return new Object[][] {
                 {5.0, 2.0, 10.0},
-                {-6.0, 0.0, 0.0}
+                {-6.0, 0.0, 0.0},
+                {0.1, 9, 0.9},
+                {-1000.0, 0.1, -100.0}
         };
     }
 

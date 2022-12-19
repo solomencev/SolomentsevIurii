@@ -36,6 +36,19 @@
             <version>3.23.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.3.1</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -86,18 +99,24 @@
         </profile>
         <profile>
             <id>MultDiv</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <suite.xml.file>multdiv.xml</suite.xml.file>
             </properties>
         </profile>
         <profile>
+            <id>HW2Exercise1</id>
+            <properties>
+                <suite.xml.file>exercise1test.xml</suite.xml.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>HW2Exercise2</id>
+            <properties>
+                <suite.xml.file>exercise2test.xml</suite.xml.file>
+            </properties>
+        </profile>
+        <profile>
             <id>AllTest</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <suite.xml.file>alltests.xml</suite.xml.file>
             </properties>

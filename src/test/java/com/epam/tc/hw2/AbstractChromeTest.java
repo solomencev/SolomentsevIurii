@@ -11,7 +11,7 @@ public class AbstractChromeTest {
     protected WebDriver driver;
 
     /** Open test site by URL. */
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -20,7 +20,7 @@ public class AbstractChromeTest {
     }
 
     /** Close Browser. */
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void teardown() {
         driver.quit();
     }

@@ -91,7 +91,7 @@
         <profile>
             <id>SumSub</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml.file>sumsub.xml</suite.xml.file>
@@ -104,15 +104,12 @@
             </properties>
         </profile>
         <profile>
-            <id>HW2Exercise1</id>
+            <id>HW2Tests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
-                <suite.xml.file>exercise1test.xml</suite.xml.file>
-            </properties>
-        </profile>
-        <profile>
-            <id>HW2Exercise2</id>
-            <properties>
-                <suite.xml.file>exercise2test.xml</suite.xml.file>
+                <suite.xml.file>hw2test.xml</suite.xml.file>
             </properties>
         </profile>
         <profile>

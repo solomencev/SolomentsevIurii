@@ -7,18 +7,14 @@ import org.testng.annotations.Test;
 
 public class SumTest extends AbstractTest {
 
-    @Test
-    public void sumTest() {
-        double res = calculator.sum(1, 2);
-        assertThat(res).isEqualTo(3);
-    }
-
-
     @DataProvider
     public static  Object[][] sumCorrectData() {
         return new Object[][] {
                 {1.0, 2.0, 3.0},
-                {-1.0, 0.0, -1.0}
+                {-1.0, 0.0, -1.0},
+                {-0.0, 0.0, 0.0},
+                {0.0, 0.0, 0.0},
+                {1.0, -1.0, 0.0}
         };
     }
 

@@ -5,19 +5,17 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class DivTest  extends AbstractTest {
-
-    @Test
-    public void divTest() {
-        double res = calculator.div(4, 2);
-        assertThat(res).isEqualTo(2);
-    }
+public class DivTest extends AbstractTest {
 
     @DataProvider
     public static  Object[][] divCorrectData() {
         return new Object[][] {
                 {21.0, 3.0, 7.0},
-                {81.0, 9.0, 9.0}
+                {81.0, 9.0, 9.0},
+                {-9223372036854775808.0, 1L, -9223372036854775808.0},
+                {0.0, 1.0, 0.0},
+                {-10.0, 10.0, -1.0},
+                {-0.9, -0.25, 3.6}
         };
     }
 

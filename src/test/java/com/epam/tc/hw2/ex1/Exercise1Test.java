@@ -43,24 +43,28 @@ public class Exercise1Test extends AbstractChromeTest {
         }
         List<String> expectedHeaderItems = List.of("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
         for (int i = 0; i < items.size(); i++) {
-            softly.assertThat(items.get(i).getText()).as("Text is incorrect").isEqualTo(expectedHeaderItems.get(i));
+            softly.assertThat(items.get(i).getText()).as("Text is incorrect").isEqualTo(expectedHeaderItems
+                    .get(i));
         }
 
         /* Assert that there are 4 images on the Index Page and they are displayed.*/
         List<WebElement> icons = driver.findElements(By.className("benefit-icon"));
-        softly.assertThat(icons.size() == NUMBER_OF_IMAGES).as("The number of images is more than 4").isTrue();
+        softly.assertThat(icons.size() == NUMBER_OF_IMAGES).as("The number of images is more than 4")
+                .isTrue();
         for (int i = 0; i < icons.size(); i++) {
             softly.assertThat(items.get(i).isDisplayed()).as("Image is displayed");
         }
 
         /* Assert that there are 4 texts on the Index Page under icons and they have proper text. */
-        List<String> listOfTextUnderImages = List.of("To include good practices\n" +
-                "and ideas from successful\n" + "EPAM project", "To be flexible and\n" + "customizable", "To be multiplatform", "Already have good base\n" +
-                "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…");
+        List<String> listOfTextUnderImages = List.of("To include good practices\n"
+                + "and ideas from successful\n" + "EPAM project", "To be flexible and\n"
+                + "customizable", "To be multiplatform", "Already have good base\n"
+                + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…");
         List<WebElement> textElementsUnderImages = driver.findElements(By.className("benefit-txt"));
 
         for (int i = 0; i < textElementsUnderImages.size(); i++) {
-            softly.assertThat(textElementsUnderImages.get(i).getText()).as("Text is incorrect").isEqualTo(listOfTextUnderImages.get(i));
+            softly.assertThat(textElementsUnderImages.get(i).getText()).as("Text is incorrect")
+                    .isEqualTo(listOfTextUnderImages.get(i));
         }
 
         for (int i = 0; i < textElementsUnderImages.size(); i++) {
@@ -80,15 +84,19 @@ public class Exercise1Test extends AbstractChromeTest {
         driver.switchTo().defaultContent();
 
         /* Assert that there are 5 items in the Left Section are displayed and they have proper text. */
-        List<String> textOfItemsLeftSideBar = List.of("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
+        List<String> textOfItemsLeftSideBar = List.of("Home", "Contact form", "Service", "Metals & Colors",
+                "Elements packs");
         List<WebElement> listOfItemsElementsLeftSideBar = driver.findElements(By.cssSelector(".sidebar-menu>li"));
-        softly.assertThat(listOfItemsElementsLeftSideBar.size() == NUMBER_OF_ITEMS_IN_LEFT_SIDE_BAR).as("Wrong number of items in the left side bar")
+        softly.assertThat(listOfItemsElementsLeftSideBar.size() == NUMBER_OF_ITEMS_IN_LEFT_SIDE_BAR)
+                .as("Wrong number of items in the left side bar")
                 .isTrue();
         for (int i = 0; i < listOfItemsElementsLeftSideBar.size(); i++) {
-            softly.assertThat(listOfItemsElementsLeftSideBar.get(i).isDisplayed()).as("Item is not displayed in the left side bar");
+            softly.assertThat(listOfItemsElementsLeftSideBar.get(i).isDisplayed()).as("Item is not displayed "
+                    + "in the left side bar");
         }
         for (int i = 0; i < textOfItemsLeftSideBar.size(); i++) {
-            softly.assertThat(listOfItemsElementsLeftSideBar.get(i).getText()).as("Text is incorrect").isEqualTo(textOfItemsLeftSideBar.get(i));
+            softly.assertThat(listOfItemsElementsLeftSideBar.get(i).getText()).as("Text is incorrect")
+                    .isEqualTo(textOfItemsLeftSideBar.get(i));
         }
 
         softly.assertAll();

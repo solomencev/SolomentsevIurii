@@ -46,7 +46,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.7.1</version>
+            <version>3.141.59</version>
         </dependency>
 
     </dependencies>
@@ -91,7 +91,7 @@
         <profile>
             <id>SumSub</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml.file>sumsub.xml</suite.xml.file>
@@ -101,6 +101,15 @@
             <id>MultDiv</id>
             <properties>
                 <suite.xml.file>multdiv.xml</suite.xml.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>HW2Tests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml.file>hw2test.xml</suite.xml.file>
             </properties>
         </profile>
         <profile>

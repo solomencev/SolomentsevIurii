@@ -12,9 +12,9 @@ import org.testng.annotations.Test;
 public class Exercise1Test extends AbstractChromeTest {
 
     public SoftAssertions softly = new SoftAssertions();
-    private static int ITEMS_IN_HEADER = 4;
-    private static int NUMBER_OF_IMAGES = 4;
-    private static int NUMBER_OF_ITEMS_IN_LEFT_SIDE_BAR = 5;
+    private static final int ITEMS_IN_HEADER = 4;
+    private static final int NUMBER_OF_IMAGES = 4;
+    private static final int NUMBER_OF_ITEMS_IN_LEFT_SIDE_BAR = 5;
 
     /** Assert Browser title. */
     @Test(groups = {"HW2"})
@@ -36,7 +36,7 @@ public class Exercise1Test extends AbstractChromeTest {
 
         /* Assert that there are 4 items on the header section are displayed and they have proper texts. */
         List<WebElement> items = driver.findElements(By.cssSelector(".uui-navigation.nav.navbar-nav.m-l8>li"));
-        softly.assertThat(items.size() == ITEMS_IN_HEADER).as("Elements are not displayed").isTrue();
+        softly.assertThat(items.size() == ITEMS_IN_HEADER).as("Incorrect number of items").isTrue();
 
         for (int i = 0; i < items.size(); i++) {
             softly.assertThat(items.get(i).isDisplayed()).as("Element is not displayed");
@@ -49,7 +49,7 @@ public class Exercise1Test extends AbstractChromeTest {
 
         /* Assert that there are 4 images on the Index Page and they are displayed.*/
         List<WebElement> icons = driver.findElements(By.className("benefit-icon"));
-        softly.assertThat(icons.size() == NUMBER_OF_IMAGES).as("The number of images is more than 4")
+        softly.assertThat(icons.size() == NUMBER_OF_IMAGES).as("Incorrect number of images")
                 .isTrue();
         for (int i = 0; i < icons.size(); i++) {
             softly.assertThat(items.get(i).isDisplayed()).as("Image is displayed");

@@ -12,6 +12,9 @@ import org.testng.annotations.Test;
 public class Exercise1Test extends AbstractChromeTest {
 
     public SoftAssertions softly = new SoftAssertions();
+    private static int ITEMS_IN_HEADER = 4;
+    private static int NUMBER_OF_IMAGES = 4;
+    private static int NUMBER_OF_ITEMS_IN_LEFT_SIDE_BAR = 5;
 
     /** Assert Browser title. */
     @Test(groups = {"HW2"})
@@ -33,43 +36,36 @@ public class Exercise1Test extends AbstractChromeTest {
 
         /* Assert that there are 4 items on the header section are displayed and they have proper texts. */
         List<WebElement> items = driver.findElements(By.cssSelector(".uui-navigation.nav.navbar-nav.m-l8>li"));
-        softly.assertThat(items.size() == 4).as("Elements are not displayed").isTrue();
+        softly.assertThat(items.size() == ITEMS_IN_HEADER).as("Elements are not displayed").isTrue();
 
         for (int i = 0; i < items.size(); i++) {
-            if (i == 0) {
-                softly.assertThat(items.get(i).getText()).as("The name of first item in menu is not 'Home'")
-                        .isEqualTo("HOME");
-            } else if (i == 1) {
-                softly.assertThat(items.get(i).getText()).as("The name of second item in menu is not 'Contact"
-                        + " form'").isEqualTo("CONTACT FORM");
-            } else if (i == 2) {
-                softly.assertThat(items.get(i).getText()).as("The name of third item in menu is not 'Service'")
-                        .isEqualTo("SERVICE");
-            } else {
-                softly.assertThat(items.get(i).getText()).as("The name of fourth item in menu is not 'Metals "
-                        + "& colors'").isEqualTo("METALS & COLORS");
-            }
-
+            softly.assertThat(items.get(i).isDisplayed()).as("Element is not displayed");
+        }
+        List<String> expectedHeaderItems = List.of("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
+        for (int i = 0; i < items.size(); i++) {
+            softly.assertThat(items.get(i).getText()).as("Text is incorrect").isEqualTo(expectedHeaderItems.get(i));
         }
 
         /* Assert that there are 4 images on the Index Page and they are displayed.*/
         List<WebElement> icons = driver.findElements(By.className("benefit-icon"));
-        softly.assertThat(icons.size() == 4).as("The number of images is more than 4").isTrue();
+        softly.assertThat(icons.size() == NUMBER_OF_IMAGES).as("The number of images is more than 4").isTrue();
         for (int i = 0; i < icons.size(); i++) {
             softly.assertThat(items.get(i).isDisplayed()).as("Image is displayed");
         }
 
         /* Assert that there are 4 texts on the Index Page under icons and they have proper text. */
-        softly.assertThat(driver.findElement(By.xpath("//div[normalize-space(span) = "
-                + "'To include good practicesand ideas from successfulEPAM project']")).isDisplayed())
-                        .as("Text is incorrect");
-        softly.assertThat(driver.findElement(By.xpath("//div[normalize-space(span) = "
-                + "'To be flexible andcustomizable']")).isDisplayed()).as("Text is incorrect");
-        softly.assertThat(driver.findElement(By.xpath("//span[(text()='To be multiplatform ')]"))
-                        .isDisplayed()).as("Text is incorrect");
-        softly.assertThat(driver.findElement(By.xpath("//div[normalize-space(span) = 'Already "
-                + "have good base(about 20 internal andsome external projects),wish to get more…']"))
-                .isDisplayed()).as("Text is incorrect");
+        List<String> listOfTextUnderImages = List.of("To include good practices\n" +
+                "and ideas from successful\n" + "EPAM project", "To be flexible and\n" + "customizable", "To be multiplatform", "Already have good base\n" +
+                "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…");
+        List<WebElement> textElementsUnderImages = driver.findElements(By.className("benefit-txt"));
+
+        for (int i = 0; i < textElementsUnderImages.size(); i++) {
+            softly.assertThat(textElementsUnderImages.get(i).getText()).as("Text is incorrect").isEqualTo(listOfTextUnderImages.get(i));
+        }
+
+        for (int i = 0; i < textElementsUnderImages.size(); i++) {
+            softly.assertThat(textElementsUnderImages.get(i).isDisplayed()).as("Text is not displayed");
+        }
 
         /* Assert that there is the iframe with “Frame Button” exist. */
         driver.findElement(By.id("frame"));
@@ -84,26 +80,15 @@ public class Exercise1Test extends AbstractChromeTest {
         driver.switchTo().defaultContent();
 
         /* Assert that there are 5 items in the Left Section are displayed and they have proper text. */
-        List<WebElement> itemsLeftSideBar = driver.findElements(By.cssSelector(".sidebar-menu>li"));
-        softly.assertThat(itemsLeftSideBar.size() == 5).as("Wrong number of items in the left side bar")
+        List<String> textOfItemsLeftSideBar = List.of("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
+        List<WebElement> listOfItemsElementsLeftSideBar = driver.findElements(By.cssSelector(".sidebar-menu>li"));
+        softly.assertThat(listOfItemsElementsLeftSideBar.size() == NUMBER_OF_ITEMS_IN_LEFT_SIDE_BAR).as("Wrong number of items in the left side bar")
                 .isTrue();
-        for (int i = 0; i < itemsLeftSideBar.size(); i++) {
-            if (i == 0) {
-                softly.assertThat(itemsLeftSideBar.get(i).getText()).as("The name of first item in menu is "
-                        + "not 'Home'").isEqualTo("Home");
-            } else if (i == 1) {
-                softly.assertThat(itemsLeftSideBar.get(i).getText()).as("The name of second item in menu is "
-                        + "not 'Contact form'").isEqualTo("Contact form");
-            } else if (i == 2) {
-                softly.assertThat(itemsLeftSideBar.get(i).getText()).as("The name of third item in menu is"
-                        + " not 'Service'").isEqualTo("Service");
-            } else if (i == 3) {
-                softly.assertThat(itemsLeftSideBar.get(i).getText()).as("The name of third item in menu is "
-                        + "not 'Metals & Colors'").isEqualTo("Metals & Colors");
-            } else {
-                softly.assertThat(itemsLeftSideBar.get(i).getText()).as("The name of fourth item in menu is "
-                        + "not 'Elements packs'").isEqualTo("Elements packs");
-            }
+        for (int i = 0; i < listOfItemsElementsLeftSideBar.size(); i++) {
+            softly.assertThat(listOfItemsElementsLeftSideBar.get(i).isDisplayed()).as("Item is not displayed in the left side bar");
+        }
+        for (int i = 0; i < textOfItemsLeftSideBar.size(); i++) {
+            softly.assertThat(listOfItemsElementsLeftSideBar.get(i).getText()).as("Text is incorrect").isEqualTo(textOfItemsLeftSideBar.get(i));
         }
 
         softly.assertAll();

@@ -113,6 +113,15 @@
             </properties>
         </profile>
         <profile>
+            <id>HW3Tests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml.file>hw3test.xml</suite.xml.file>
+            </properties>
+        </profile>
+        <profile>
             <id>AllTest</id>
             <properties>
                 <suite.xml.file>alltests.xml</suite.xml.file>

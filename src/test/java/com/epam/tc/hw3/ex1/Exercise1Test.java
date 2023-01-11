@@ -1,12 +1,13 @@
 package com.epam.tc.hw3.ex1;
 
+
+import static pages.MainPage.*;
+
 import com.epam.tc.hw3.AbstractChromeTest;
 import java.util.List;
 import org.testng.annotations.Test;
 import pages.MainPage;
 import org.assertj.core.api.SoftAssertions;
-
-import static pages.MainPage.*;
 
 public class Exercise1Test extends AbstractChromeTest {
 
@@ -17,7 +18,7 @@ public class Exercise1Test extends AbstractChromeTest {
                     "To be multiplatform",
                     "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
 
-    @Test(groups = {"HW2"})
+    @Test(groups = {"HW3"})
     public void exercise1() {
         SoftAssertions softly = new SoftAssertions();
         MainPage mainPage = new MainPage(driver);
@@ -35,13 +36,15 @@ public class Exercise1Test extends AbstractChromeTest {
         }
 
         /* Assert that there are 4 images on the Index Page and they are displayed.*/
-        softly.assertThat(mainPage.listOfImages.size()).as("Incorrect number of items").isEqualTo(COUNT_OF_IMAGES_ON_MAIN_PAGE);
+        softly.assertThat(mainPage.listOfImages.size()).as("Incorrect number of items")
+                .isEqualTo(COUNT_OF_IMAGES_ON_MAIN_PAGE);
         for (int i = 0; i < COUNT_OF_IMAGES_ON_MAIN_PAGE; i++) {
             softly.assertThat(mainPage.listOfImages.get(i).isDisplayed());
         }
         /* Assert that there are 4 texts on the Index Page under icons and they have proper text. */
         for (int i = 0; i < mainPage.listOfTextUnderImages.size() - 1; i++) {
-            softly.assertThat(mainPage.listOfTextUnderImages.get(i).getText()).as("Text is incorrect").isEqualTo(textUnderImages.get(i));
+            softly.assertThat(mainPage.listOfTextUnderImages.get(i).getText()).as("Text is incorrect")
+                    .isEqualTo(textUnderImages.get(i));
         }
 
         /* Assert that there is the iframe with “Frame Button” exist. */
@@ -54,7 +57,8 @@ public class Exercise1Test extends AbstractChromeTest {
         driver.switchTo().parentFrame();
         /* Assert that there are 5 items in the Left Section are displayed and they have proper text. */
         for (int i = 0; i < mainPage.leftMenu.size() - 1; i++) {
-            softly.assertThat(mainPage.leftMenu.get(i).getText()).as("Text is incorrect").isEqualTo(leftMenuItems.get(i));
+            softly.assertThat(mainPage.leftMenu.get(i).getText()).as("Text is incorrect")
+                    .isEqualTo(leftMenuItems.get(i));
         }
 
         softly.assertAll();

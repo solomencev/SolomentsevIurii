@@ -1,16 +1,13 @@
 package com.epam.tc.hw3.ex2;
 
+import static pages.MainPage.HOME_PAGE;
+
 import com.epam.tc.hw3.AbstractChromeTest;
-import java.io.IOException;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.DifferentElementsPage;
 import pages.MainPage;
-
-import static pages.MainPage.HOME_PAGE;
-import static pages.MainPage.URL_HOME_PAGE;
 
 public class Exercise2Test extends AbstractChromeTest {
     public SoftAssertions softly = new SoftAssertions();
@@ -18,7 +15,7 @@ public class Exercise2Test extends AbstractChromeTest {
             .of("Colors: value changed to Yellow", "metal: value changed to Selen", "Wind: condition changed to true",
                     "Water: condition changed to true");
 
-    @Test(groups = {"HW2"})
+    @Test(groups = {"HW3"})
     public void exercise2()  {
         MainPage mainPage = new MainPage(driver);
         //2. Assert Browser title "Home Page"

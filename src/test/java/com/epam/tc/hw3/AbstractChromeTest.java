@@ -11,8 +11,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import utils.Config;
 
-import static utils.Config.*;
-
 public class AbstractChromeTest {
 
     protected WebDriver driver;

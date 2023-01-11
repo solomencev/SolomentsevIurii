@@ -14,8 +14,7 @@ public class Config {
             Properties prop = new Properties();
             prop.load(fp);
             return prop;
-        }
-        catch (IOException exception){
+        } catch (IOException exception) {
             exception.printStackTrace();
         }
         return null;

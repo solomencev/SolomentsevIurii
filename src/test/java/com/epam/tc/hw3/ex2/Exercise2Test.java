@@ -27,11 +27,11 @@ public class Exercise2Test extends AbstractChromeTest {
         driver.get(URL_HOME_PAGE);
         MainPage mainPage = new MainPage(driver);
         //2. Assert Browser title "Home Page"
-        softly.assertThat(driver.getTitle()).isEqualTo(HOME_PAGE);
+        softly.assertThat(driver.getTitle()).as("Browser title is incorrect").isEqualTo(HOME_PAGE);
         /* Perform login. */
         mainPage.login(user, password);
         /* Assert Username is loggined.*/
-        softly.assertThat(mainPage.userLogged()).isEqualTo(userFullName);
+        softly.assertThat(mainPage.userLogged()).as("Roman Iovlev is not logged").isEqualTo(userFullName);
         /* Open through the header menu Service -> Different Elements Page. */
         mainPage.headerMenu()
                 .clickServiceMenu()

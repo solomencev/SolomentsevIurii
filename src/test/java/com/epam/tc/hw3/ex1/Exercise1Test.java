@@ -1,13 +1,10 @@
 package com.epam.tc.hw3.ex1;
 
-
-import static pages.MainPage.*;
-
 import com.epam.tc.hw3.AbstractChromeTest;
 import java.util.List;
+import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import pages.MainPage;
-import org.assertj.core.api.SoftAssertions;
 
 public class Exercise1Test extends AbstractChromeTest {
 
@@ -23,7 +20,7 @@ public class Exercise1Test extends AbstractChromeTest {
         SoftAssertions softly = new SoftAssertions();
         MainPage mainPage = new MainPage(driver);
         /* Assert Browser title. */
-        softly.assertThat(driver.getTitle()).as("Browser title is incorrect").isEqualTo(HOME_PAGE);
+        softly.assertThat(driver.getTitle()).as("Browser title is incorrect").isEqualTo(mainPage.HOME_PAGE);
         /* Perform login. */
         mainPage.login(user, password);
         /* Assert Username is loggined.*/
@@ -50,7 +47,7 @@ public class Exercise1Test extends AbstractChromeTest {
         /* Assert that there is the iframe with “Frame Button” exist. */
         softly.assertThat(mainPage.frame.isDisplayed()).as("There is no button");
         //* Switch to the iframe and check that there is “Frame Button” in the iframe. */
-        driver.switchTo().frame(ID_FRAME);
+        driver.switchTo().frame(mainPage.ID_FRAME);
         softly.assertThat(mainPage.frameButton.isDisplayed()).as("There is no button "
                 + "in the frame");
         /* Switch to original window back. */

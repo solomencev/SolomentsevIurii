@@ -105,9 +105,6 @@
         </profile>
         <profile>
             <id>HW2Tests</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <suite.xml.file>hw2test.xml</suite.xml.file>
             </properties>

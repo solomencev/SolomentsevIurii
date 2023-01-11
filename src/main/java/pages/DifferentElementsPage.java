@@ -9,20 +9,43 @@ import utils.WaitActions;
 
 public class DifferentElementsPage {
 
+
+
     @FindBy(xpath = "//label[text()[contains(., ' Water')]]/*[@type='checkbox']")
-    public WebElement checkBoxWater;
+    private WebElement checkBoxWater;
+
+    public WebElement getCheckBoxWater() {
+        return checkBoxWater;
+    }
+
 
     @FindBy(xpath = "//label[text()[contains(., ' Wind')]]/*[@type='checkbox']")
-    public WebElement checkBoxWind;
+    private WebElement checkBoxWind;
+
+    public WebElement getCheckBoxWind() {
+        return checkBoxWind;
+    }
 
     @FindBy(xpath = "//label[text()[contains(., ' Selen')]]/*[@type='radio']")
-    public WebElement radioButtonSelen;
+    private WebElement radioButtonSelen;
+
+    public WebElement getRadioButtonSelen() {
+        return radioButtonSelen;
+    }
 
     @FindBy(xpath = "//*[text()='Yellow']")
-    public WebElement dropdownYellow;
+    private WebElement dropdownYellow;
+
+    public WebElement getDropdownYellow() {
+        return dropdownYellow;
+    }
 
     @FindBy(css = ".panel-body-list.logs > li")
-    public List<WebElement> logs;
+    private List<WebElement> logs;
+
+    public List<WebElement> getLogs() {
+        return logs;
+    }
 
     WaitActions waitActions;
 

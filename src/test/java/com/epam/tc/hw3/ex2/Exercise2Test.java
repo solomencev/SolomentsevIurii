@@ -38,21 +38,21 @@ public class Exercise2Test extends AbstractChromeTest {
                 .clickDifferentElements();
         /* Select checkboxes. */
         DifferentElementsPage difElPage = new DifferentElementsPage(driver);
-        difElPage.checkBoxWater.click();
-        difElPage.checkBoxWind.click();
+        difElPage.getCheckBoxWater().click();
+        difElPage.getCheckBoxWind().click();
         /* Select radio. */
-        difElPage.radioButtonSelen.click();
+        difElPage.getRadioButtonSelen().click();
         /* Select in dropdown. */
-        difElPage.dropdownYellow.click();
+        difElPage.getDropdownYellow().click();
         /* Assert that: for each checkbox there is an individual log row and value is corresponded to the status of
          * checkbox; for radio button there is a log row and value is corresponded to the status of radio button; for
          * dropdown there is a log row and value is corresponded to the selected value. */
-        softly.assertThat(difElPage.checkBoxWater.isSelected()).isTrue();
-        softly.assertThat(difElPage.checkBoxWind.isSelected()).isTrue();
-        softly.assertThat(difElPage.radioButtonSelen.isSelected()).isTrue();
-        softly.assertThat(difElPage.dropdownYellow.isSelected()).isTrue();
+        softly.assertThat(difElPage.getCheckBoxWater().isSelected()).isTrue();
+        softly.assertThat(difElPage.getCheckBoxWind().isSelected()).isTrue();
+        softly.assertThat(difElPage.getRadioButtonSelen().isSelected()).isTrue();
+        softly.assertThat(difElPage.getDropdownYellow().isSelected()).isTrue();
         for (int i = 0; i < logs.size(); i++) {
-            softly.assertThat(difElPage.logs.get(i).getText()).contains(logs.get(i));
+            softly.assertThat(difElPage.getLogs().get(i).getText()).contains(logs.get(i));
         }
         softly.assertAll();
     }

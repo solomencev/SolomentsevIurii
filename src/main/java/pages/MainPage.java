@@ -24,8 +24,6 @@ public class MainPage {
     @FindBy(xpath = "//*[@class='sidebar-menu left']/li")
     public List<WebElement> leftMenu;
 
-    WaitActions waitActions;
-
     private HeaderMenu headerMenu;
 
     @FindBy(css = "li.uui-profile-menu")
@@ -76,4 +74,6 @@ public class MainPage {
     public HeaderMenu headerMenu() {
         return headerMenu;
     }
+
+    WaitActions waitActions;
 }

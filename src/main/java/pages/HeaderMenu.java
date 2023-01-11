@@ -18,7 +18,7 @@ public class HeaderMenu {
     private WebElement contactFormMenu;
 
     @FindBy(xpath = "//li[@class='dropdown']")
-    private WebElement serviceSubMenu;
+    private WebElement serviceMenuDropDown;
 
     @FindBy(xpath = "//li[a='Metals & Colors']")
     private WebElement metalsAndColoursMenu;
@@ -29,20 +29,9 @@ public class HeaderMenu {
         serviceMenu = new ServiceMenu(driver);
     }
 
-    public void clickHomeMenu() {
-        homeMenu.click();
-    }
-
-    public void clickContactFormMenu() {
-        contactFormMenu.click();
-    }
-
     public ServiceMenu clickServiceMenu() {
-        serviceSubMenu.click();
+        serviceMenuDropDown.click();
         return serviceMenu;
     }
 
-    public void clickMetalsAndColoursMenu() {
-        metalsAndColoursMenu.click();
-    }
 }

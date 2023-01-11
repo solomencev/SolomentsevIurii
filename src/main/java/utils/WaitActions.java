@@ -12,9 +12,4 @@ public class WaitActions {
     public WaitActions(WebDriver webDriver) {
         webDriverWait = new WebDriverWait(webDriver, 10);
     }
-
-    public Boolean waitUntilCondition(Function<WebDriver, Boolean> p) {
-        return webDriverWait.ignoring(NoSuchElementException.class)
-                .until(p);
-    }
 }

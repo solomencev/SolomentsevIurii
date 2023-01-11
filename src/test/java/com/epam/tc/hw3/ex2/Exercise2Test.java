@@ -18,22 +18,17 @@ public class Exercise2Test extends AbstractChromeTest {
             .of("Colors: value changed to Yellow", "metal: value changed to Selen", "Wind: condition changed to true",
                     "Water: condition changed to true");
 
-    public Exercise2Test() throws IOException {
-    }
-
     @Test(groups = {"HW2"})
     public void exercise2()  {
-        //1. Open test site by URL
-        driver.get(URL_HOME_PAGE);
         MainPage mainPage = new MainPage(driver);
         //2. Assert Browser title "Home Page"
         softly.assertThat(driver.getTitle()).as("Browser title is incorrect").isEqualTo(HOME_PAGE);
         /* Perform login. */
         mainPage.login(user, password);
         /* Assert Username is loggined.*/
-        softly.assertThat(mainPage.userLogged()).as("Roman Iovlev is not logged").isEqualTo(userFullName);
+        softly.assertThat(mainPage.getUserName()).as("Roman Iovlev is not logged").isEqualTo(userFullName);
         /* Open through the header menu Service -> Different Elements Page. */
-        mainPage.headerMenu()
+        mainPage.getHeaderMenu()
                 .clickServiceMenu()
                 .clickDifferentElements();
         /* Select checkboxes. */

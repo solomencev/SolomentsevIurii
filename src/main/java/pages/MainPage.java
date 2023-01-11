@@ -44,9 +44,9 @@ public class MainPage {
     @FindBy(css = ".uui-navigation.nav.navbar-nav.m-l8>li")
     private List<WebElement> itemsInHeader;
 
-    public static  String ID_FRAME = "frame";
-    public static String URL_HOME_PAGE = "https://jdi-testing.github.io/jdi-light/index.html";
-    public static String HOME_PAGE = "Home Page";
+    public static final String ID_FRAME = "frame";
+    public static final String URL_HOME_PAGE = "https://jdi-testing.github.io/jdi-light/index.html";
+    public static final String HOME_PAGE = "Home Page";
 
 
     public MainPage(WebDriver driver) {
@@ -62,16 +62,15 @@ public class MainPage {
         loginSubmit.click();
     }
 
-    public String userLogged() {
-
+    public String getUserName() {
         return loginName.getText();
     }
 
-    public List<WebElement> menuList() {
+    public List<WebElement> getMenuList() {
         return itemsInHeader;
     }
 
-    public HeaderMenu headerMenu() {
+    public HeaderMenu getHeaderMenu() {
         return headerMenu;
     }
 

@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import utils.Config;
 
 import static utils.Config.*;
 
@@ -20,12 +21,9 @@ public class AbstractChromeTest {
             .of("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
     public static List<String> LIST_ITEMS_HEADER = List
             .of("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
-    public String user = getUserNameFromProperties();
-    public String password = getUserPasswordFromProperties();
-    public String userFullName = getUserFullNameFromProperties();
-
-    public AbstractChromeTest() throws IOException {
-    }
+    public String user = Config.getUserNameFromProperties();
+    public String password = Config.getUserPasswordFromProperties();
+    public String userFullName = Config.getUserFullNameFromProperties();
 
     /** Open test site by URL. */
     @BeforeClass(alwaysRun = true)

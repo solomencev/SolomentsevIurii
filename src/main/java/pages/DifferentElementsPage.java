@@ -9,15 +9,12 @@ import utils.WaitActions;
 
 public class DifferentElementsPage {
 
-
-
     @FindBy(xpath = "//label[text()[contains(., ' Water')]]/*[@type='checkbox']")
     private WebElement checkBoxWater;
 
     public WebElement getCheckBoxWater() {
         return checkBoxWater;
     }
-
 
     @FindBy(xpath = "//label[text()[contains(., ' Wind')]]/*[@type='checkbox']")
     private WebElement checkBoxWind;
@@ -53,6 +50,4 @@ public class DifferentElementsPage {
         PageFactory.initElements(driver, this);
         waitActions = new WaitActions(driver);
     }
-
-
 }

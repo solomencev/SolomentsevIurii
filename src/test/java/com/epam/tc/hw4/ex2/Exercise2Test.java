@@ -1,9 +1,8 @@
 package com.epam.tc.hw4.ex2;
 
-import static com.epam.pages.MainPage.HOME_PAGE;
-
 import com.epam.tc.hw4.AbstractChromeTest;
 import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
@@ -17,26 +16,69 @@ public class Exercise2Test extends AbstractChromeTest {
     @Test(groups = {"HW4"})
     @Description(value = "Test case for Exercise #2")
     public void exercise2()  {
-        //2. Assert Browser title "Home Page"
-        softly.assertThat(driver.getTitle()).as("Browser title is incorrect").isEqualTo(HOME_PAGE);
-        /* Perform login. */
+        assertBrowserTitle();
+        performLogin();
+        assertUserLoggined();
+        openDifferentElementsPage();
+        clickCheckBoxesWaterAndWind();
+        clickRadioButtonSelen();
+        selectDropdownYellow();
+        assertLogs();
+        softly.assertAll();
+    }
+
+
+    /* Assert Browser title. */
+    @Step
+    public SoftAssertions assertBrowserTitle() {
+        softly.assertThat(driver.getTitle()).as("Browser title is incorrect").isEqualTo(mainPage.HOME_PAGE);
+        return softly;
+    }
+
+    /* Perform login. */
+    @Step
+    private void performLogin() {
         mainPage.login(user, password);
-        /* Assert Username is loggined.*/
-        softly.assertThat(mainPage.getUserName()).as("Roman Iovlev is not logged").isEqualTo(userFullName);
-        /* Open through the header menu Service -> Different Elements Page. */
-        mainPage.getHeaderMenu()
-                .clickServiceMenu()
-                .clickDifferentElements();
-        /* Select checkboxes. */
+    }
+
+    /* Assert Username is loggined.*/
+    @Step
+    public SoftAssertions assertUserLoggined() {
+        softly.assertThat(mainPage.getUserName()).as("Roman Iovlev is not logged")
+                .isEqualTo(userFullName);
+        return softly;
+    }
+
+    /* Open through the header menu Service -> Different Elements Page. */
+    @Step
+    public void openDifferentElementsPage() {
+        mainPage.getHeaderMenu().clickServiceMenu().clickDifferentElements();
+    }
+
+    /* Select checkboxes. */
+    @Step
+    public void clickCheckBoxesWaterAndWind() {
         differentElementsPage.getCheckBoxWater().click();
         differentElementsPage.getCheckBoxWind().click();
-        /* Select radio. */
+    }
+
+    /* Select radio. */
+    @Step
+    public void clickRadioButtonSelen() {
         differentElementsPage.getRadioButtonSelen().click();
-        /* Select in dropdown. */
+    }
+
+    /* Select in dropdown. */
+    @Step
+    public void selectDropdownYellow() {
         differentElementsPage.getDropdownYellow().click();
-        /* Assert that: for each checkbox there is an individual log row and value is corresponded to the status of
-         * checkbox; for radio button there is a log row and value is corresponded to the status of radio button; for
-         * dropdown there is a log row and value is corresponded to the selected value. */
+    }
+
+    /* Assert that: for each checkbox there is an individual log row and value is corresponded to the status of
+     * checkbox; for radio button there is a log row and value is corresponded to the status of radio button; for
+     * dropdown there is a log row and value is corresponded to the selected value. */
+    @Step
+    public SoftAssertions assertLogs() {
         softly.assertThat(differentElementsPage.getCheckBoxWater().isSelected()).as("Logs are not displayed")
                 .isTrue();
         softly.assertThat(differentElementsPage.getCheckBoxWind().isSelected()).as("Logs are not displayed")
@@ -49,6 +91,6 @@ public class Exercise2Test extends AbstractChromeTest {
         for (int i = 0; i < LOGS.size(); i++) {
             softly.assertThat(differentElementsPage.getLogs().get(i).getText()).contains(LOGS.get(i));
         }
-        softly.assertAll();
+        return softly;
     }
 }

@@ -1,5 +1,7 @@
 package com.epam.tc.hw3;
 
+import com.epam.pages.DifferentElementsPage;
+import com.epam.pages.MainPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.io.IOException;
 import java.util.List;
@@ -15,19 +17,20 @@ public class AbstractChromeTest {
 
     protected WebDriver driver;
     static WebDriverWait webDriverWait;
-    public static List<String> leftMenuItems =  List
-            .of("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
-    public static List<String> LIST_ITEMS_HEADER = List
-            .of("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
-    public String user = Config.getUserNameFromProperties();
-    public String password = Config.getUserPasswordFromProperties();
-    public String userFullName = Config.getUserFullNameFromProperties();
+    protected MainPage mainPage;
+    protected DifferentElementsPage differentElementsPage;
+
+    protected String user = Config.getUserNameFromProperties();
+    protected String password = Config.getUserPasswordFromProperties();
+    protected String userFullName = Config.getUserFullNameFromProperties();
 
     /** Open test site by URL. */
     @BeforeClass(alwaysRun = true)
     public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        mainPage = new MainPage(driver);
+        differentElementsPage = new DifferentElementsPage(driver);
         driver.get("https://jdi-testing.github.io/jdi-light/index.html");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);

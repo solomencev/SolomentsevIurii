@@ -1,23 +1,20 @@
 package com.epam.tc.hw3.ex2;
 
-import static pages.MainPage.HOME_PAGE;
+import static com.epam.pages.MainPage.HOME_PAGE;
 
 import com.epam.tc.hw3.AbstractChromeTest;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
-import pages.DifferentElementsPage;
-import pages.MainPage;
 
 public class Exercise2Test extends AbstractChromeTest {
     public SoftAssertions softly = new SoftAssertions();
-    private static List<String> logs = List
+    private static final List<String> LOGS = List
             .of("Colors: value changed to Yellow", "metal: value changed to Selen", "Wind: condition changed to true",
                     "Water: condition changed to true");
 
     @Test(groups = {"HW3"})
     public void exercise2()  {
-        MainPage mainPage = new MainPage(driver);
         //2. Assert Browser title "Home Page"
         softly.assertThat(driver.getTitle()).as("Browser title is incorrect").isEqualTo(HOME_PAGE);
         /* Perform login. */
@@ -29,22 +26,26 @@ public class Exercise2Test extends AbstractChromeTest {
                 .clickServiceMenu()
                 .clickDifferentElements();
         /* Select checkboxes. */
-        DifferentElementsPage difElPage = new DifferentElementsPage(driver);
-        difElPage.getCheckBoxWater().click();
-        difElPage.getCheckBoxWind().click();
+        differentElementsPage.getCheckBoxWater().click();
+        differentElementsPage.getCheckBoxWind().click();
         /* Select radio. */
-        difElPage.getRadioButtonSelen().click();
+        differentElementsPage.getRadioButtonSelen().click();
         /* Select in dropdown. */
-        difElPage.getDropdownYellow().click();
+        differentElementsPage.getDropdownYellow().click();
         /* Assert that: for each checkbox there is an individual log row and value is corresponded to the status of
          * checkbox; for radio button there is a log row and value is corresponded to the status of radio button; for
          * dropdown there is a log row and value is corresponded to the selected value. */
-        softly.assertThat(difElPage.getCheckBoxWater().isSelected()).isTrue();
-        softly.assertThat(difElPage.getCheckBoxWind().isSelected()).isTrue();
-        softly.assertThat(difElPage.getRadioButtonSelen().isSelected()).isTrue();
-        softly.assertThat(difElPage.getDropdownYellow().isSelected()).isTrue();
-        for (int i = 0; i < logs.size(); i++) {
-            softly.assertThat(difElPage.getLogs().get(i).getText()).contains(logs.get(i));
+        softly.assertThat(differentElementsPage.getCheckBoxWater().isSelected()).as("Logs are not displayed")
+                .isTrue();
+        softly.assertThat(differentElementsPage.getCheckBoxWind().isSelected()).as("Logs are not displayed")
+                .isTrue();
+        softly.assertThat(differentElementsPage.getRadioButtonSelen().isSelected())
+                .as("Logs are not displayed")
+                .isTrue();
+        softly.assertThat(differentElementsPage.getDropdownYellow().isSelected()).as("Logs are not displayed")
+                .isTrue();
+        for (int i = 0; i < LOGS.size(); i++) {
+            softly.assertThat(differentElementsPage.getLogs().get(i).getText()).contains(LOGS.get(i));
         }
         softly.assertAll();
     }

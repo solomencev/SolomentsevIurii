@@ -1,7 +1,5 @@
 package utils;
 
-import java.util.function.Function;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 

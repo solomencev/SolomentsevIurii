@@ -1,5 +1,6 @@
-package pages;
+package com.epam.pages;
 
+import com.epam.pages.fragments.HeaderMenu;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,22 +10,23 @@ import utils.WaitActions;
 
 public class MainPage {
 
+    private HeaderMenu headerMenu;
+    WaitActions waitActions;
+
     @FindBy(className = "benefit-icon")
-    public List<WebElement> listOfImages;
+    private List<WebElement> listOfImages;
 
     @FindBy(className = "benefit-txt")
-    public List<WebElement> listOfTextUnderImages;
+    private List<WebElement> listOfTextUnderImages;
 
     @FindBy(id = "frame")
-    public WebElement frame;
+    private WebElement frame;
 
     @FindBy(id = "frame-button")
-    public WebElement frameButton;
+    private WebElement frameButton;
 
     @FindBy(xpath = "//*[@class='sidebar-menu left']/li")
-    public List<WebElement> leftMenu;
-
-    private HeaderMenu headerMenu;
+    private List<WebElement> leftMenu;
 
     @FindBy(css = "li.uui-profile-menu")
     private WebElement loginDropdown;
@@ -45,9 +47,7 @@ public class MainPage {
     private List<WebElement> itemsInHeader;
 
     public static final String ID_FRAME = "frame";
-    public static final String URL_HOME_PAGE = "https://jdi-testing.github.io/jdi-light/index.html";
     public static final String HOME_PAGE = "Home Page";
-
 
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -74,5 +74,23 @@ public class MainPage {
         return headerMenu;
     }
 
-    WaitActions waitActions;
+    public List<WebElement> getListOfImages() {
+        return listOfImages;
+    }
+
+    public List<WebElement> getListOfTextUnderImages() {
+        return listOfTextUnderImages;
+    }
+
+    public WebElement getFrame() {
+        return frame;
+    }
+
+    public List<WebElement> getLeftMenu() {
+        return leftMenu;
+    }
+
+    public WebElement getFrameButton() {
+        return frameButton;
+    }
 }

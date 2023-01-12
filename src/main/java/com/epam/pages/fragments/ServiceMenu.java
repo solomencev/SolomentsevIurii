@@ -1,4 +1,4 @@
-package pages;
+package com.epam.pages.fragments;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

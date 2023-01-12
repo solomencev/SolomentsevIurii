@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite of home work#4" verbose="1" >
+    <test name="Exercise 1, Exercise 2 tests" >
+        <groups>
+            <run>
+                <include name="HW4"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.epam.tc.hw4.ex1.Exercise1Test" />
+            <class name="com.epam.tc.hw4.ex2.Exercise2Test" />
+        </classes>
+    </test>
+</suite>

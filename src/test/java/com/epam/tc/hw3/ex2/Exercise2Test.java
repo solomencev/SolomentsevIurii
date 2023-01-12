@@ -7,13 +7,14 @@ import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 
+
 public class Exercise2Test extends AbstractChromeTest {
     public SoftAssertions softly = new SoftAssertions();
     private static final List<String> LOGS = List
             .of("Colors: value changed to Yellow", "metal: value changed to Selen", "Wind: condition changed to true",
                     "Water: condition changed to true");
 
-    @Test(groups = {"HW3"})
+    @Test(groups = {"HW4"})
     public void exercise2()  {
         //2. Assert Browser title "Home Page"
         softly.assertThat(driver.getTitle()).as("Browser title is incorrect").isEqualTo(HOME_PAGE);

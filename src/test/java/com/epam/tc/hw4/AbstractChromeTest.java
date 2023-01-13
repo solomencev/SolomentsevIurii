@@ -9,8 +9,10 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import utils.Config;
 
 public class AbstractChromeTest {
@@ -26,7 +28,7 @@ public class AbstractChromeTest {
 
     /** Open test site by URL. */
     @BeforeClass(alwaysRun = true)
-    public void setup() {
+    public void setup(ITestContext context) {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         mainPage = new MainPage(driver);
@@ -35,6 +37,7 @@ public class AbstractChromeTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         webDriverWait = new WebDriverWait(driver, 10);
+        context.setAttribute("driver", driver);
     }
 
     /** Close Browser. */

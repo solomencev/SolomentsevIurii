@@ -27,7 +27,6 @@ public class Exercise2Test extends AbstractChromeTest {
         softly.assertAll();
     }
 
-
     /* Assert Browser title. */
     @Step
     public SoftAssertions assertBrowserTitle() {

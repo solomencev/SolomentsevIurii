@@ -2,7 +2,9 @@ package com.epam.tc.hw4.ex1;
 
 import com.epam.tc.hw4.AbstractChromeTest;
 import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
+import io.qameta.allure.Story;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
@@ -25,6 +27,8 @@ public class Exercise1TestFail extends AbstractChromeTest {
 
     @Test(groups = {"HW4"})
     @Description(value = "Test case for Exercise #1")
+    @Feature("Feature One")
+    @Story("Index Page")
     public void exercise1fail() {
 
         assertBrowserTitle();

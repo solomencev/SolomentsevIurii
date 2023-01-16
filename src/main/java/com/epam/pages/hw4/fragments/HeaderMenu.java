@@ -1,10 +1,11 @@
-package com.epam.pages.fragments;
+package com.epam.pages.hw4.fragments;
 
+import com.epam.pages.hw4.fragments.utils.WaitActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utils.WaitActions;
+
 
 public class HeaderMenu {
 

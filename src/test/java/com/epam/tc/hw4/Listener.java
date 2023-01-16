@@ -1,10 +1,10 @@
 package com.epam.tc.hw4;
 
+import com.epam.pages.hw4.fragments.utils.AttachmentUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import utils.AttachmentUtils;
 
 public class Listener implements ITestListener {
 

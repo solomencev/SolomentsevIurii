@@ -1,4 +1,4 @@
-package utils;
+package com.epam.pages.hw4.fragments.utils;
 
 import java.io.File;
 import java.io.FileInputStream;

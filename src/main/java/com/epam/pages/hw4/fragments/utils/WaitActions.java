@@ -1,4 +1,4 @@
-package utils;
+package com.epam.pages.hw4.fragments.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;

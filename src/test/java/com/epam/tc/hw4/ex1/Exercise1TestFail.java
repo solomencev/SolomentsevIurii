@@ -44,29 +44,25 @@ public class Exercise1TestFail extends AbstractChromeTest {
         softly.assertAll();
     }
 
-    /* Assert Browser title. */
-    @Step
+    @Step("Verify browser title")
     public SoftAssertions assertBrowserTitle() {
         softly.assertThat(driver.getTitle()).as("Browser title is incorrect").isEqualTo(mainPage.HOME_PAGE);
         return softly;
     }
 
-    /* Perform login. */
-    @Step
+    @Step("User log in")
     private void performLogin() {
         mainPage.login(user, password);
     }
 
-    /* Assert Username is loggined.*/
-    @Step
+    @Step("The user is logged")
     public SoftAssertions assertUserLoggined() {
         softly.assertThat(mainPage.getUserName()).as("Roman Iovlev is not logged")
                 .isEqualTo(userFullName);
         return softly;
     }
 
-    /* Assert that there are 4 items on the header section are displayed and they have proper texts. */
-    @Step
+    @Step("Check that items are displayed in the Header")
     public SoftAssertions assertItemsInHeader() {
         for (int i = 0; i < LIST_ITEMS_HEADER.size(); i++) {
             softly.assertThat(mainPage.getMenuList().get(i).getText()).isEqualTo(LIST_ITEMS_HEADER.get(i))
@@ -76,8 +72,7 @@ public class Exercise1TestFail extends AbstractChromeTest {
         return softly;
     }
 
-    /* Assert that there are 4 images on the Index Page and they are displayed.*/
-    @Step
+    @Step("Check images on the Index page")
     public SoftAssertions assertImagesOnIndexPage() {
         softly.assertThat(mainPage.getListOfImages().size()).as("Incorrect number of items")
                 .isEqualTo(COUNT_OF_IMAGES_ON_MAIN_PAGE);
@@ -88,8 +83,7 @@ public class Exercise1TestFail extends AbstractChromeTest {
         return softly;
     }
 
-    /* Assert that there are 4 texts on the Index Page under icons and they have proper text. */
-    @Step
+    @Step("Check text under icons")
     public SoftAssertions assertTextUnderIcons() {
         for (int i = 0; i < mainPage.getListOfTextUnderImages().size() - 1; i++) {
             softly.assertThat(mainPage.getListOfTextUnderImages().get(i).getText()).as("Text is incorrect")
@@ -98,15 +92,13 @@ public class Exercise1TestFail extends AbstractChromeTest {
         return softly;
     }
 
-    /* Assert that there is the iframe with “Frame Button” exist. */
-    @Step
+    @Step("Check button in the Frame")
     public SoftAssertions assertIframeWithButton() {
         softly.assertThat(mainPage.getFrame().isDisplayed()).as("There is no button");
         return softly;
     }
 
-    //* Switch to the iframe and check that there is “Frame Button” in the iframe. */
-    @Step
+    @Step("Switch to the Frame")
     public SoftAssertions switchToFrame() {
         driver.switchTo().frame(mainPage.ID_FRAME);
         softly.assertThat(mainPage.getFrameButton().isDisplayed()).as("There is no button "
@@ -114,14 +106,12 @@ public class Exercise1TestFail extends AbstractChromeTest {
         return softly;
     }
 
-    //* Switch to the iframe and check that there is “Frame Button” in the iframe. */
-    @Step
+    @Step("Switch back to Window")
     public void switchToWindow() {
         driver.switchTo().parentFrame();
     }
 
-    /* Assert that there are 5 items in the Left Section are displayed and they have proper text. */
-    @Step
+    @Step("Check items in the left section")
     public SoftAssertions assertItemsInLeftSection() {
         for (int i = 0; i < mainPage.getLeftMenu().size() - 1; i++) {
             softly.assertThat(mainPage.getLeftMenu().get(i).getText()).as("Text is incorrect")

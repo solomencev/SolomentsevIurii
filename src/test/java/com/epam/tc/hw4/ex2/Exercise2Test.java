@@ -31,56 +31,48 @@ public class Exercise2Test extends AbstractChromeTest {
         softly.assertAll();
     }
 
-    /* Assert Browser title. */
-    @Step
+    @Step("Verify browser title")
     public SoftAssertions assertBrowserTitle() {
         softly.assertThat(driver.getTitle()).as("Browser title is incorrect").isEqualTo(mainPage.HOME_PAGE);
         return softly;
     }
 
-    /* Perform login. */
-    @Step
+    @Step("User log in")
     private void performLogin() {
         mainPage.login(user, password);
     }
 
-    /* Assert Username is loggined.*/
-    @Step
+    @Step("The user is logged")
     public SoftAssertions assertUserLoggined() {
         softly.assertThat(mainPage.getUserName()).as("Roman Iovlev is not logged")
                 .isEqualTo(userFullName);
         return softly;
     }
 
-    /* Open through the header menu Service -> Different Elements Page. */
-    @Step
+    @Step("Open through the header menu Service -> Different Elements Page")
     public void openDifferentElementsPage() {
         mainPage.getHeaderMenu().clickServiceMenu().clickDifferentElements();
     }
 
-    /* Select checkboxes. */
-    @Step
+    @Step("Select checkboxes")
     public void clickCheckBoxesWaterAndWind() {
         differentElementsPage.getCheckBoxWater().click();
         differentElementsPage.getCheckBoxWind().click();
     }
 
-    /* Select radio. */
-    @Step
+    @Step("Select radio")
     public void clickRadioButtonSelen() {
         differentElementsPage.getRadioButtonSelen().click();
     }
 
-    /* Select in dropdown. */
-    @Step
+    @Step("Select in dropdown")
     public void selectDropdownYellow() {
         differentElementsPage.getDropdownYellow().click();
     }
 
-    /* Assert that: for each checkbox there is an individual log row and value is corresponded to the status of
-     * checkbox; for radio button there is a log row and value is corresponded to the status of radio button; for
-     * dropdown there is a log row and value is corresponded to the selected value. */
-    @Step
+    @Step("Assert that 1 for each checkbox there is an individual log row and value is corresponded to the status \n"
+        + "of checkbox 2 for radio button there is a log row and value is corresponded to the status of radio button\n"
+        + "3 for dropdown there is a log row and value")
     public SoftAssertions assertLogs() {
         softly.assertThat(differentElementsPage.getCheckBoxWater().isSelected()).as("Logs are not displayed")
                 .isTrue();

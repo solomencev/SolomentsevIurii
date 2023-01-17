@@ -48,6 +48,7 @@ public class MainPage {
 
     public static final String ID_FRAME = "frame";
     public static final String HOME_PAGE = "Home Page";
+    public static final String URL_HOME_PAGE = "https://jdi-testing.github.io/jdi-light/index.html";
 
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver, this);

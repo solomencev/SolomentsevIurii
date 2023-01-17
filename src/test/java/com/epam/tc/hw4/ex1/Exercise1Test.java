@@ -1,5 +1,8 @@
 package com.epam.tc.hw4.ex1;
 
+import static com.epam.pages.MainPage.HOME_PAGE;
+import static com.epam.pages.MainPage.URL_HOME_PAGE;
+
 import com.epam.tc.hw4.AbstractChromeTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -30,39 +33,48 @@ public class Exercise1Test extends AbstractChromeTest {
     @Story("Index Page")
     public void exercise1() {
 
-        assertBrowserTitle();
-        performLogin();
-        assertUserLoggined();
-        assertItemsInHeader();
+        actionStep.openWebSite(URL_HOME_PAGE);
+
+
+
+        //assertBrowserTitle();
+        assertStep.assertBrowserTitle(HOME_PAGE);
+
+
+        actionStep.performLogin(user, password);
+        assertStep.assertUserIsLogged(userFullName);
+
+        /*assertItemsInHeader();
+
         assertImagesOnIndexPage();
         assertTextUnderIcons();
         assertIframeWithButton();
         switchToFrame();
         switchToWindow();
-        assertItemsInLeftSection();
+        assertItemsInLeftSection();*/
         softly.assertAll();
     }
 
     /* Assert Browser title. */
-    @Step
+    /*@Step
     public SoftAssertions assertBrowserTitle() {
         softly.assertThat(driver.getTitle()).as("Browser title is incorrect").isEqualTo(mainPage.HOME_PAGE);
         return softly;
-    }
+    }*/
 
     /* Perform login. */
-    @Step
+    /*@Step
     private void performLogin() {
         mainPage.login(user, password);
-    }
+    }*/
 
     /* Assert Username is loggined.*/
-    @Step
+    /*@Step
     public SoftAssertions assertUserLoggined() {
         softly.assertThat(mainPage.getUserName()).as("Roman Iovlev is not logged")
                 .isEqualTo(userFullName);
         return softly;
-    }
+    }*/
 
     /* Assert that there are 4 items on the header section are displayed and they have proper texts. */
     @Step

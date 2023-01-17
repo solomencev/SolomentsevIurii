@@ -21,7 +21,8 @@ public class Exercise2Test extends AbstractChromeTest {
     @Story("Different Elements Page")
     public void exercise2()  {
         assertBrowserTitle();
-        performLogin();
+        actionStep.performLogin(user, password);
+        //performLogin();
         assertUserLoggined();
         openDifferentElementsPage();
         clickCheckBoxesWaterAndWind();
@@ -39,10 +40,10 @@ public class Exercise2Test extends AbstractChromeTest {
     }
 
     /* Perform login. */
-    @Step
+    /*@Step
     private void performLogin() {
         mainPage.login(user, password);
-    }
+    }*/
 
     /* Assert Username is loggined.*/
     @Step

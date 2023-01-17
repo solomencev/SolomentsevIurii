@@ -32,7 +32,8 @@ public class Exercise1TestFail extends AbstractChromeTest {
     public void exercise1fail() {
 
         assertBrowserTitle();
-        performLogin();
+        actionStep.performLogin(user, password);
+        //performLogin();
         assertUserLoggined();
         assertItemsInHeader();
         assertImagesOnIndexPage();
@@ -52,10 +53,10 @@ public class Exercise1TestFail extends AbstractChromeTest {
     }
 
     /* Perform login. */
-    @Step
+    /*@Step
     private void performLogin() {
         mainPage.login(user, password);
-    }
+    }*/
 
     /* Assert Username is loggined.*/
     @Step

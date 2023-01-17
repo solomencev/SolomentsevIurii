@@ -1,53 +1,59 @@
 package com.epam.tc.hw4;
 
-import com.epam.pages.DifferentElementsPage;
-import com.epam.pages.MainPage;
+import static com.epam.pages.hw4.fragments.utils.Config.getUserFullNameFromProperties;
+import static com.epam.pages.hw4.fragments.utils.Config.getUserNameFromProperties;
+import static com.epam.pages.hw4.fragments.utils.Config.getUserPasswordFromProperties;
+import static com.epam.tc.hw4.steps.AbstractStep.webDriver;
+
 import com.epam.tc.hw4.steps.ActionStep;
 import com.epam.tc.hw4.steps.AssertStep;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.assertj.core.api.SoftAssertions;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import utils.Config;
 
-public abstract class AbstractChromeTest {
 
-    protected WebDriver driver;
+public class AbstractChromeTest {
+    protected ActionStep actionStep = new ActionStep(webDriver);
+    protected AssertStep assertStep = new AssertStep(webDriver);
+    protected SoftAssertions softAssert = new SoftAssertions();
     static WebDriverWait webDriverWait;
-    protected MainPage mainPage;
-    protected DifferentElementsPage differentElementsPage;
-    protected SoftAssertions softAssert;
-    protected ActionStep actionStep;
-    protected AssertStep assertStep;
+    public static List<String> leftMenuItems =  List
+        .of("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
+    public static List<String> LIST_ITEMS_HEADER = List
+        .of("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
 
-    protected String user = Config.getUserNameFromProperties();
-    protected String password = Config.getUserPasswordFromProperties();
-    protected String userFullName = Config.getUserFullNameFromProperties();
+    public static final List<String> TEXT_UNDER_IMAGES = List
+        .of("To include good practices\nand ideas from successful\nEPAM project",
+            "To be flexible and\ncustomizable",
+            "To be multiplatform",
+            "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
 
-    /** Open test site by URL. */
-    @BeforeClass(alwaysRun = true)
-    public void setup(ITestContext context) {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        softAssert = new SoftAssertions();
-        assertStep = new AssertStep(driver);
-        actionStep = new ActionStep(driver);
-        differentElementsPage = new DifferentElementsPage(driver);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        webDriverWait = new WebDriverWait(driver, 10);
-        context.setAttribute("driver", driver);
+    public String user = getUserNameFromProperties();
+    public String password = getUserPasswordFromProperties();
+    public String userFullName = getUserFullNameFromProperties();
 
+    public AbstractChromeTest() throws IOException {
     }
 
-    /** Close Browser. */
+    @BeforeClass(alwaysRun = true)
+    public static void setup(ITestContext context) {
+        WebDriverManager.chromedriver().setup();
+        webDriver = new ChromeDriver();
+        webDriver.manage().window().maximize();
+        webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        webDriverWait = new WebDriverWait(webDriver, 10);
+        context.setAttribute("driver", webDriver);
+    }
+
     @AfterClass(alwaysRun = true)
     public void teardown() {
-        driver.quit();
+        webDriver.quit();
     }
 }

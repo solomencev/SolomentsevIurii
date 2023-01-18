@@ -8,16 +8,12 @@ import com.epam.tc.hw4.AbstractChromeTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import java.io.IOException;
 import org.testng.annotations.Test;
 
 public class Exercise1TestFail extends AbstractChromeTest {
 
     /* Set as 3 for test fail */
     private static int countOfImagesMainPage = 3;
-
-    public Exercise1TestFail() throws IOException {
-    }
 
     @Test(groups = {"HW4"})
     @Description(value = "Test case for Exercise #1")
@@ -37,7 +33,6 @@ public class Exercise1TestFail extends AbstractChromeTest {
         assertStep.assertFrameButtonIsDisplayed();
         actionStep.switchToParentWindow();
         assertStep.assertItemsInLeftSection(leftMenuItems);
-        softAssert.assertAll();
 
     }
 }

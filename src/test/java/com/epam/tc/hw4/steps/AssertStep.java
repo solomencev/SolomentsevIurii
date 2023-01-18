@@ -21,7 +21,6 @@ public class AssertStep extends AbstractStep {
     public void assertUserIsLogged(String userFullName) {
         mainPage = new MainPage(webDriver);
         softAssert.assertThat(mainPage.getUserName()).isEqualTo(userFullName);
-        //softAssert.assertAll();
     }
 
     @Step("Assert that there are 4 items on the header section are displayed and they have proper texts")
@@ -40,6 +39,7 @@ public class AssertStep extends AbstractStep {
             softAssert.assertThat(mainPage.getListOfTextUnderImages().get(i).isDisplayed())
                   .as("Incorrect number of images");
         }
+        softAssert.assertAll();
     }
 
     @Step("Assert that there are 4 texts on the Index Page under icons and they have proper text")
@@ -69,7 +69,6 @@ public class AssertStep extends AbstractStep {
 
     @Step("Element is checked")
     public void assertElementIsSelected(WebElement element) {
-
         softAssert.assertThat(element.isSelected()).isTrue();
     }
 

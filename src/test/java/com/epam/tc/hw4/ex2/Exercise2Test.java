@@ -8,7 +8,6 @@ import com.epam.tc.hw4.AbstractChromeTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import java.io.IOException;
 import java.util.List;
 import org.testng.annotations.Test;
 
@@ -17,9 +16,6 @@ public class Exercise2Test extends AbstractChromeTest {
     private static final List<String> LOGS = List
         .of("Colors: value changed to Yellow", "metal: value changed to Selen", "Wind: condition changed to true",
             "Water: condition changed to true");
-
-    public Exercise2Test() throws IOException {
-    }
 
     @Test(groups = {"HW4"})
     @Description(value = "Test case for Exercise #2")

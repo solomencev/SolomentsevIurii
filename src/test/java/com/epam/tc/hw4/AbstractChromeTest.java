@@ -5,13 +5,12 @@ import static com.epam.pages.hw4.fragments.utils.Config.getUserNameFromPropertie
 import static com.epam.pages.hw4.fragments.utils.Config.getUserPasswordFromProperties;
 import static com.epam.tc.hw4.steps.AbstractStep.webDriver;
 
+import com.epam.pages.MainPage;
 import com.epam.tc.hw4.steps.ActionStep;
 import com.epam.tc.hw4.steps.AssertStep;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
@@ -22,7 +21,6 @@ import org.testng.annotations.BeforeClass;
 public class AbstractChromeTest {
     protected ActionStep actionStep = new ActionStep(webDriver);
     protected AssertStep assertStep = new AssertStep(webDriver);
-    protected SoftAssertions softAssert = new SoftAssertions();
     static WebDriverWait webDriverWait;
     public static List<String> leftMenuItems =  List
         .of("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
@@ -39,9 +37,6 @@ public class AbstractChromeTest {
     public String password = getUserPasswordFromProperties();
     public String userFullName = getUserFullNameFromProperties();
 
-    public AbstractChromeTest() throws IOException {
-    }
-
     @BeforeClass(alwaysRun = true)
     public static void setup(ITestContext context) {
         WebDriverManager.chromedriver().setup();
@@ -56,4 +51,5 @@ public class AbstractChromeTest {
     public void teardown() {
         webDriver.quit();
     }
+
 }

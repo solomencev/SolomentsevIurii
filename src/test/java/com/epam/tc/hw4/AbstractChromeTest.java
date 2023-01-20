@@ -3,7 +3,6 @@ package com.epam.tc.hw4;
 import static com.epam.pages.utils.Config.getUserFullNameFromProperties;
 import static com.epam.pages.utils.Config.getUserNameFromProperties;
 import static com.epam.pages.utils.Config.getUserPasswordFromProperties;
-//import static com.epam.tc.hw4.steps.AbstractStep.webDriver;
 
 import com.epam.pages.DifferentElementsPage;
 import com.epam.pages.MainPage;
@@ -22,8 +21,7 @@ import org.testng.annotations.BeforeClass;
 
 
 public abstract class AbstractChromeTest {
-    /*protected ActionStep actionStep = new ActionStep(webDriver);
-    protected AssertStep assertStep = new AssertStep(webDriver);*/
+
     public static MainPage mainPage;
     public static AssertStep assertStep;
     public static ActionStep actionStep;

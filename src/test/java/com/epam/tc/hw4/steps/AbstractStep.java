@@ -5,15 +5,15 @@ import com.epam.pages.MainPage;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 
-public class AbstractStep {
+public abstract class AbstractStep {
 
-    public static WebDriver webDriver;
+    //public static WebDriver webDriver;
     SoftAssertions softAssert = new SoftAssertions();
-    public MainPage mainPage;
-    public static DifferentElementsPage differentElementsPage;
+    //protected MainPage mainPage;
+    //public static DifferentElementsPage differentElementsPage;
 
 
-    protected AbstractStep(WebDriver webDriver) {
+    /*protected AbstractStep(WebDriver webDriver) {
         this.webDriver = webDriver;
-    }
+    }*/
 }

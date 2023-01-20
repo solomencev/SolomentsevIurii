@@ -2,7 +2,7 @@ package com.epam.tc.hw3;
 
 import com.epam.pages.DifferentElementsPage;
 import com.epam.pages.MainPage;
-import com.epam.pages.hw4.fragments.utils.Config;
+import com.epam.pages.utils.Config;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;

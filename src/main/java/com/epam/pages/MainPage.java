@@ -1,8 +1,7 @@
 package com.epam.pages;
 
 import com.epam.pages.hw4.fragments.HeaderMenu;
-import com.epam.pages.hw4.fragments.utils.WaitActions;
-import io.qameta.allure.internal.AllureStorage;
+import com.epam.pages.utils.WaitActions;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

@@ -1,6 +1,6 @@
 package com.epam.pages.hw4.fragments;
 
-import com.epam.pages.hw4.fragments.utils.WaitActions;
+import com.epam.pages.utils.WaitActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

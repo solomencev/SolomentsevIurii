@@ -1,6 +1,6 @@
 package com.epam.pages;
 
-import com.epam.pages.hw4.fragments.utils.WaitActions;
+import com.epam.pages.utils.WaitActions;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

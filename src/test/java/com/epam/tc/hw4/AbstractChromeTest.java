@@ -1,8 +1,8 @@
 package com.epam.tc.hw4;
 
-import static com.epam.pages.hw4.fragments.utils.Config.getUserFullNameFromProperties;
-import static com.epam.pages.hw4.fragments.utils.Config.getUserNameFromProperties;
-import static com.epam.pages.hw4.fragments.utils.Config.getUserPasswordFromProperties;
+import static com.epam.pages.utils.Config.getUserFullNameFromProperties;
+import static com.epam.pages.utils.Config.getUserNameFromProperties;
+import static com.epam.pages.utils.Config.getUserPasswordFromProperties;
 //import static com.epam.tc.hw4.steps.AbstractStep.webDriver;
 
 import com.epam.pages.DifferentElementsPage;

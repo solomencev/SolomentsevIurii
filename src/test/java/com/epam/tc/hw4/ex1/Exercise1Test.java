@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class Exercise1Test extends AbstractChromeTest {
 
-    private static final int countOfImagesMainPage = 4;
+    private static final int COUNT_OF_IMAGES_MAIN_PAGE = 4;
 
     @Test(groups = {"HW4"})
     @Description(value = "Test case for Exercise #1")
@@ -25,7 +25,7 @@ public class Exercise1Test extends AbstractChromeTest {
         actionStep.performLogin(user, password);
         assertStep.assertUserIsLogged(userFullName);
         assertStep.assertItemsInHeader(LIST_ITEMS_HEADER);
-        assertStep.assertImagesOnIndexPage(countOfImagesMainPage);
+        assertStep.assertImagesOnIndexPage(COUNT_OF_IMAGES_MAIN_PAGE);
         assertStep.assertTextUnderIcons(TEXT_UNDER_IMAGES);
         assertStep.assertIframeButtonExist();
         actionStep.switchToIframe(ID_FRAME);

@@ -12,6 +12,7 @@ import com.epam.tc.hw4.steps.AssertStep;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,13 +21,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 
-public class AbstractChromeTest {
+public abstract class AbstractChromeTest {
     /*protected ActionStep actionStep = new ActionStep(webDriver);
     protected AssertStep assertStep = new AssertStep(webDriver);*/
     public static MainPage mainPage;
     public static AssertStep assertStep;
     public static ActionStep actionStep;
-    public static WebDriver webDriver;
+    public SoftAssertions softAssert = new SoftAssertions();
+
+    private static WebDriver webDriver;
     public static DifferentElementsPage differentElementsPage;
     static WebDriverWait webDriverWait;
     public static List<String> leftMenuItems =  List
@@ -47,6 +50,7 @@ public class AbstractChromeTest {
     @BeforeClass(alwaysRun = true)
     public void setup(ITestContext context) {
         WebDriverManager.chromedriver().setup();
+        softAssert = new SoftAssertions();
         webDriver = new ChromeDriver();
         mainPage = new MainPage(webDriver);
         assertStep = new AssertStep(webDriver);
@@ -61,6 +65,10 @@ public class AbstractChromeTest {
     @AfterClass(alwaysRun = true)
     public void teardown() {
         webDriver.quit();
+    }
+
+    public static WebDriver getWebDriver() {
+        return webDriver;
     }
 
 }

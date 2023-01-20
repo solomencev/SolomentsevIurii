@@ -1,3 +1,4 @@
+/*
 package com.epam.tc.hw4.steps;
 
 import com.epam.pages.DifferentElementsPage;
@@ -8,12 +9,15 @@ import org.openqa.selenium.WebDriver;
 public abstract class AbstractStep {
 
     //public static WebDriver webDriver;
-    SoftAssertions softAssert = new SoftAssertions();
+    //SoftAssertions softAssert = new SoftAssertions();
     //protected MainPage mainPage;
     //public static DifferentElementsPage differentElementsPage;
 
 
-    /*protected AbstractStep(WebDriver webDriver) {
+    */
+/*protected AbstractStep(WebDriver webDriver) {
         this.webDriver = webDriver;
-    }*/
+    }*//*
+
 }
+*/

@@ -2,26 +2,23 @@ package com.epam.tc.hw4.steps;
 
 import static com.epam.tc.hw4.AbstractChromeTest.differentElementsPage;
 import static com.epam.tc.hw4.AbstractChromeTest.mainPage;
-import static com.epam.tc.hw4.AbstractChromeTest.webDriver;
+//import static com.epam.tc.hw4.AbstractChromeTest.webDriver;
 
 import com.epam.pages.MainPage;
+import com.epam.tc.hw4.AbstractChromeTest;
 import io.qameta.allure.Step;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class AssertStep extends AbstractStep {
+public class AssertStep extends AbstractChromeTest {
     public AssertStep(WebDriver webDriver) {
         super();
     }
 
-    /*public AssertStep(WebDriver driver) {
-        super(driver);
-    }*/
-
     @Step("Browser title equals 'Home Page' {title}")
     public void assertBrowserTitle(String title) {
-        softAssert.assertThat(webDriver.getTitle()).isEqualTo(title);
+        softAssert.assertThat(getWebDriver().getTitle()).isEqualTo(title);
     }
 
     @Step("User is logged {userFullName}")

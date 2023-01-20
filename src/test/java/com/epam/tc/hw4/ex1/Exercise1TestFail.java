@@ -24,7 +24,7 @@ public class Exercise1TestFail extends AbstractChromeTest {
         actionStep.openWebSite(URL_HOME_PAGE);
         assertStep.assertBrowserTitle(HOME_PAGE);
         actionStep.performLogin(user, password);
-        assertStep.assertUserIsLogged(userFullName);
+        assertStep.assertUserIsLogged(userFullName + "dfdff");
         assertStep.assertItemsInHeader(LIST_ITEMS_HEADER);
         assertStep.assertImagesOnIndexPage(COUNT_OF_IMAGES_MAIN_PAGE);
         assertStep.assertTextUnderIcons(TEXT_UNDER_IMAGES);
@@ -33,6 +33,7 @@ public class Exercise1TestFail extends AbstractChromeTest {
         assertStep.assertFrameButtonIsDisplayed();
         actionStep.switchToParentWindow();
         assertStep.assertItemsInLeftSection(leftMenuItems);
+        softAssert.assertAll();
 
     }
 }

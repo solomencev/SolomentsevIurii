@@ -31,6 +31,18 @@ public class DifferentElementsPage {
         waitActions = new WaitActions(driver);
     }
 
+    public void selectRadioButton(WebElement element) {
+        element.click();
+    }
+
+    public void selectCheckboxes(WebElement element) {
+        element.click();
+    }
+
+    public void selectDropDown(WebElement element) {
+        element.click();
+    }
+
     public WebElement getCheckBoxWater() {
         return checkBoxWater;
     }

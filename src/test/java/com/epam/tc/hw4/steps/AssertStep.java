@@ -19,12 +19,14 @@ public class AssertStep extends AbstractChromeTest {
     @Step("Browser title equals 'Home Page' {title}")
     public void assertBrowserTitle(String title) {
         softAssert.assertThat(getWebDriver().getTitle()).isEqualTo(title);
+        softAssert.assertAll();
     }
 
     @Step("User is logged {userFullName}")
     public void assertUserIsLogged(String userFullName) {
         //mainPage = new MainPage(webDriver);
         softAssert.assertThat(mainPage.getUserName()).isEqualTo(userFullName);
+        softAssert.assertAll();
     }
 
     @Step("Assert that there are 4 items on header section are displayed and they have proper texts {listItemsHeader}}")
@@ -32,7 +34,9 @@ public class AssertStep extends AbstractChromeTest {
         for (int i = 0; i < listItemsHeader.size(); i++) {
             softAssert.assertThat(mainPage.getMenuList().get(i).getText()).isEqualTo(listItemsHeader.get(i));
             softAssert.assertThat(mainPage.getMenuList().get(i).isDisplayed());
+            softAssert.assertAll();
         }
+        softAssert.assertAll();
     }
 
     @Step("Assert that there are 4 images on the Index Page and they are displayed {countOfImagesOnIndexPage}")
@@ -42,6 +46,7 @@ public class AssertStep extends AbstractChromeTest {
         for (int i = 0; i < countOfImagesOnIndexPage; i++) {
             softAssert.assertThat(mainPage.getListOfTextUnderImages().get(i).isDisplayed())
                   .as("Incorrect number of images");
+            softAssert.assertAll();
         }
         softAssert.assertAll();
     }
@@ -51,17 +56,21 @@ public class AssertStep extends AbstractChromeTest {
         for (int i = 0; i < mainPage.getListOfTextUnderImages().size() - 1; i++) {
             softAssert.assertThat(mainPage.getListOfTextUnderImages().get(i).getText()).isEqualTo(textUnderImages
                 .get(i));
+            softAssert.assertAll();
         }
+        //softAssert.assertAll();
     }
 
     @Step("Assert that there is the iframe with “Frame Button” exist")
     public void assertIframeButtonExist() {
         softAssert.assertThat(mainPage.getFrame().isDisplayed());
+        softAssert.assertAll();
     }
 
     @Step("Check that there is 'Frame Button' in the iframe")
     public void assertFrameButtonIsDisplayed() {
         softAssert.assertThat(mainPage.getFrameButton().isDisplayed());
+        softAssert.assertAll();
     }
 
     @Step("Assert that there are 5 items in the Left Section are displayed and they have proper text {leftMenuItems}")
@@ -69,17 +78,20 @@ public class AssertStep extends AbstractChromeTest {
         for (int i = 0; i < mainPage.getLeftMenu().size() - 1; i++) {
             softAssert.assertThat(mainPage.getLeftMenu().get(i).getText()).isEqualTo(leftMenuItems.get(i));
         }
+        softAssert.assertAll();
     }
 
     @Step("Element is checked {element}")
     public void assertElementIsSelected(WebElement element) {
         softAssert.assertThat(element.isSelected()).isTrue();
+        softAssert.assertAll();
     }
 
     @Step("Log row and value is corresponded to the selected value. {textForLogs}")
     public void assertLogsForElements(List<String> textForLogs) {
         for (int i = 0; i < textForLogs.size(); i++) {
             softAssert.assertThat(differentElementsPage.getLogs().get(i).getText()).contains(textForLogs.get(i));
+            softAssert.assertAll();
         }
     }
 }

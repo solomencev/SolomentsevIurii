@@ -31,16 +31,20 @@ public class DifferentElementsPage {
         waitActions = new WaitActions(driver);
     }
 
-    public void selectRadioButton(WebElement element) {
-        element.click();
+    public void selectRadioButtonSelen() {
+        radioButtonSelen.click(); //  private WebElement radioButtonSelen;
     }
 
-    public void selectCheckboxes(WebElement element) {
-        element.click();
+    public void selectCheckBoxWind() {
+        checkBoxWind.click(); // private WebElement checkBoxWind;
     }
 
-    public void selectDropDown(WebElement element) {
-        element.click();
+    public void selectCheckBoxWater() {
+        checkBoxWater.click(); // private WebElement checkBoxWater;
+    }
+
+    public void selectDropDownYellow() {
+        dropdownYellow.click(); // private WebElement dropdownYellow;
     }
 
     public WebElement getCheckBoxWater() {

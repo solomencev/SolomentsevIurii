@@ -33,7 +33,5 @@ public class Exercise1TestFail extends AbstractChromeTest {
         assertStep.assertFrameButtonIsDisplayed();
         actionStep.switchToParentWindow();
         assertStep.assertItemsInLeftSection(leftMenuItems);
-        //softAssert.assertAll();
-
     }
 }

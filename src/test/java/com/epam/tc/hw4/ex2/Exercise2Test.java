@@ -28,16 +28,14 @@ public class Exercise2Test extends AbstractChromeTest {
         actionStep.performLogin(user, password);
         assertStep.assertUserIsLogged(userFullName);
         actionStep.openDifferentElementsPage();
-        actionStep.selectCheckbox(differentElementsPage.getCheckBoxWater());
-        actionStep.selectCheckbox(differentElementsPage.getCheckBoxWind());
-        actionStep.selectRadio(differentElementsPage.getRadioButtonSelen());
-        actionStep.selectDropDownColor(differentElementsPage.getDropdownYellow());
+        actionStep.selectCheckboxWater();
+        actionStep.selectCheckboxWind();
+        actionStep.selectRadioSelen();
+        actionStep.selectDropDownColorYellow();
         assertStep.assertElementIsSelected(differentElementsPage.getCheckBoxWater());
         assertStep.assertElementIsSelected(differentElementsPage.getCheckBoxWind());
         assertStep.assertElementIsSelected(differentElementsPage.getRadioButtonSelen());
         assertStep.assertElementIsSelected(differentElementsPage.getDropdownYellow());
         assertStep.assertLogsForElements(LOGS);
-        softAssert.assertAll();
-
     }
 }

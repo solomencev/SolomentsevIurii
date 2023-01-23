@@ -68,5 +68,4 @@ public abstract class AbstractChromeTest {
     public static WebDriver getWebDriver() {
         return webDriver;
     }
-
 }

@@ -32,6 +32,5 @@ public class Exercise1Test extends AbstractChromeTest {
         assertStep.assertFrameButtonIsDisplayed();
         actionStep.switchToParentWindow();
         assertStep.assertItemsInLeftSection(leftMenuItems);
-
     }
 }

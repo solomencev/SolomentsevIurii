@@ -38,20 +38,22 @@ public class ActionStep extends AbstractChromeTest {
     }
 
     @Step("Select checkboxes {element}")
-    public void selectCheckbox(WebElement element) {
-        differentElementsPage.selectCheckboxes(element);
+    public void selectCheckboxWind() {
+        differentElementsPage.selectCheckBoxWind();
+    }
+
+    @Step("Select checkboxes {element}")
+    public void selectCheckboxWater() {
+        differentElementsPage.selectCheckBoxWater();
     }
 
     @Step("Select radio {element}")
-    public void selectRadio(WebElement element) {
-        differentElementsPage.selectRadioButton(element);
+    public void selectRadioSelen() {
+        differentElementsPage.selectRadioButtonSelen();
     }
 
     @Step("Select in dropdown {element}")
-    public void selectDropDownColor(WebElement element) {
-        differentElementsPage.selectDropDown(element);
+    public void selectDropDownColorYellow() {
+        differentElementsPage.selectDropDownYellow();
     }
-
-
-
 }

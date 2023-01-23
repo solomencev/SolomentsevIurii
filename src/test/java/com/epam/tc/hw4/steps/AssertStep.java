@@ -89,6 +89,5 @@ public class AssertStep extends AbstractChromeTest {
                       .as("Not selected").contains(textForLogs.get(i));
         }
         softAssert.assertAll();
-
     }
 }

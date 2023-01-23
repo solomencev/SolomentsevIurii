@@ -1,7 +1,5 @@
 package com.epam.tc.hw4.steps;
 
-import static com.epam.tc.hw4.AbstractChromeTest.getWebDriver;
-
 import io.qameta.allure.Step;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +12,7 @@ public class AssertStep extends BaseStep {
 
     @Step("Browser title equals 'Home Page' {title}")
     public void assertBrowserTitle(String title) {
-        softAssert.assertThat(getWebDriver().getTitle()).as("Incorrect title").isEqualTo(title);
+        softAssert.assertThat(webDriver.getTitle()).as("Incorrect title").isEqualTo(title);
         softAssert.assertAll();
     }
 

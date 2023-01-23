@@ -1,6 +1,5 @@
 package com.epam.tc.hw4.steps;
 
-import static com.epam.tc.hw4.AbstractChromeTest.getWebDriver;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
@@ -12,8 +11,14 @@ public class ActionStep extends BaseStep {
 
     @Step("Open test site by URL")
     public void openWebSite(String website) {
-        getWebDriver().get(website);
+        webDriver.get(website);
     }
+
+    /*
+    @Step
+    public void openWebSite(String website) {
+        mainPage.openWebSite(website);
+    }*/
 
     @Step("Perform login as {username}|{password}")
     public void performLogin(String user, String password) {
@@ -22,12 +27,12 @@ public class ActionStep extends BaseStep {
 
     @Step("Switch to the {frame}")
     public void switchToIframe(String iframe) {
-        getWebDriver().switchTo().frame(iframe);
+        webDriver.switchTo().frame(iframe);
     }
 
     @Step("Switch to original window back")
     public void switchToParentWindow() {
-        getWebDriver().switchTo().parentFrame();
+        webDriver.switchTo().parentFrame();
     }
 
     @Step("Open through the header menu Service -> Different Elements Page")

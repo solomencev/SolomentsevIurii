@@ -16,12 +16,11 @@ import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-
 public abstract class AbstractChromeTest {
 
     public static AssertStep assertStep;
     public static ActionStep actionStep;
-    private static WebDriver webDriver;
+    protected static WebDriver webDriver;
     static WebDriverWait webDriverWait;
     public static List<String> leftMenuItems =  List
         .of("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
@@ -55,7 +54,4 @@ public abstract class AbstractChromeTest {
         webDriver.quit();
     }
 
-    public static WebDriver getWebDriver() {
-        return webDriver;
-    }
 }

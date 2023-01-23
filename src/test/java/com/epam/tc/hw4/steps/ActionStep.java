@@ -1,13 +1,13 @@
 package com.epam.tc.hw4.steps;
 
-import com.epam.tc.hw4.AbstractChromeTest;
+import static com.epam.tc.hw4.AbstractChromeTest.getWebDriver;
+
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-public class ActionStep extends AbstractChromeTest {
+public class ActionStep extends BaseStep {
     public ActionStep(WebDriver webDriver) {
-        super();
+        super(webDriver);
     }
 
     @Step("Open test site by URL")
@@ -17,7 +17,6 @@ public class ActionStep extends AbstractChromeTest {
 
     @Step("Perform login as {username}|{password}")
     public void performLogin(String user, String password) {
-        //mainPage = new MainPage(webDriver);
         mainPage.login(user, password);
     }
 
@@ -34,7 +33,6 @@ public class ActionStep extends AbstractChromeTest {
     @Step("Open through the header menu Service -> Different Elements Page")
     public void openDifferentElementsPage() {
         mainPage.getHeaderMenu().clickServiceMenu().clickDifferentElements();
-        //differentElementsPage = new DifferentElementsPage(webDriver);
     }
 
     @Step("Select checkboxes {element}")

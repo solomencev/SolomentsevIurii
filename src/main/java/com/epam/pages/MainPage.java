@@ -53,7 +53,6 @@ public class MainPage {
 
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
-        //driver.get(URL_HOME_PAGE);
         waitActions = new WaitActions(driver);
         headerMenu = new HeaderMenu(driver);
     }

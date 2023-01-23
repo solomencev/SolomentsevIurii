@@ -14,12 +14,6 @@ public class ActionStep extends BaseStep {
         webDriver.get(website);
     }
 
-    /*
-    @Step
-    public void openWebSite(String website) {
-        mainPage.openWebSite(website);
-    }*/
-
     @Step("Perform login as {username}|{password}")
     public void performLogin(String user, String password) {
         mainPage.login(user, password);

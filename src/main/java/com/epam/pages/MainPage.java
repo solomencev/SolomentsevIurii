@@ -3,13 +3,8 @@ package com.epam.pages;
 import com.epam.pages.hw4.fragments.HeaderMenu;
 import com.epam.pages.utils.WaitActions;
 import java.util.List;
-import java.util.Set;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -18,8 +13,6 @@ public class MainPage {
 
     private HeaderMenu headerMenu;
     WaitActions waitActions;
-    //WebDriver driver;
-    //WebDriver driver = new ChromeDriver();
 
     @FindBy(className = "benefit-icon")
     private List<WebElement> listOfImages;
@@ -60,13 +53,10 @@ public class MainPage {
 
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
+        //driver.get(URL_HOME_PAGE);
         waitActions = new WaitActions(driver);
         headerMenu = new HeaderMenu(driver);
     }
-
-    /*public void openWebSite(String website) {
-        driver.get(website);
-    }*/
 
     public void login(String user, String password)  {
         loginDropdown.click();

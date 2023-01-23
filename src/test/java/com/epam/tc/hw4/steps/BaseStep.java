@@ -12,11 +12,8 @@ public abstract class BaseStep extends AbstractChromeTest {
     public static MainPage mainPage;
     public static DifferentElementsPage differentElementsPage;
 
-
-
     protected BaseStep(WebDriver webDriver) {
         mainPage = new MainPage(webDriver);
         differentElementsPage = new DifferentElementsPage(webDriver);
     }
-
 }

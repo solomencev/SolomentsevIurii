@@ -21,7 +21,7 @@ public class Exercise1TestFail extends AbstractChromeTest {
     @Story("Index Page")
     public void exercise1fail() {
 
-        actionStep.openWebSite(URL_HOME_PAGE);
+        actionStep.openWebSite();
         assertStep.assertBrowserTitle(HOME_PAGE + "fdfejf4jfi4jf");
         actionStep.performLogin(user, password);
         assertStep.assertUserIsLogged(userFullName + "dfdryytrytytff"); // fail 1

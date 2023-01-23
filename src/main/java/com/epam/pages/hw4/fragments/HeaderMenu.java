@@ -1,13 +1,12 @@
 package com.epam.pages.hw4.fragments;
 
+import com.epam.pages.BasePage;
 import com.epam.pages.utils.WaitActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-
-public class HeaderMenu {
+public class HeaderMenu extends BasePage {
 
     WaitActions waitActions;
     private ServiceMenu serviceMenu;
@@ -15,15 +14,20 @@ public class HeaderMenu {
     @FindBy(xpath = "//li[@class='dropdown']")
     private WebElement serviceMenuDropDown;
 
+    @FindBy(xpath = "//a[text()='Different elements']")
+    private WebElement differentElementsServiceElement;
+
     public HeaderMenu(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        waitActions = new WaitActions(driver);
-        serviceMenu = new ServiceMenu(driver);
+        super(driver);
     }
 
-    public ServiceMenu clickServiceMenu() {
+    public void clickServiceMenu() {
         serviceMenuDropDown.click();
-        return serviceMenu;
     }
+
+    public void clickOnDifferentElementsServiceElement() {
+        differentElementsServiceElement.click();
+    }
+
 
 }

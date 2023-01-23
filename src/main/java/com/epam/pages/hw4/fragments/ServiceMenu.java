@@ -1,17 +1,17 @@
 package com.epam.pages.hw4.fragments;
 
+import com.epam.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class ServiceMenu {
+public class ServiceMenu extends BasePage {
 
     @FindBy(xpath = "//li/a[text()='Different elements']")
     private WebElement differentElements;
 
     public ServiceMenu(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public void clickDifferentElements() {

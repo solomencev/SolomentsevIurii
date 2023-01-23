@@ -1,6 +1,7 @@
 package com.epam.tc.hw3.ex2;
 
 import static com.epam.pages.MainPage.HOME_PAGE;
+import static com.epam.tc.hw4.steps.BaseStep.headerMenu;
 
 import com.epam.tc.hw3.AbstractChromeTest;
 import java.util.List;
@@ -23,9 +24,11 @@ public class Exercise2Test extends AbstractChromeTest {
         /* Assert Username is loggined.*/
         softly.assertThat(mainPage.getUserName()).as("Roman Iovlev is not logged").isEqualTo(userFullName);
         /* Open through the header menu Service -> Different Elements Page. */
-        mainPage.getHeaderMenu()
+        /*mainPage.getHeaderMenu()
                 .clickServiceMenu()
-                .clickDifferentElements();
+                .clickDifferentElements();*/
+        headerMenu.clickServiceMenu();
+        headerMenu.clickOnDifferentElementsServiceElement();
         /* Select checkboxes. */
         differentElementsPage.getCheckBoxWater().click();
         differentElementsPage.getCheckBoxWind().click();

@@ -2,7 +2,6 @@ package com.epam.tc.hw4.ex1;
 
 import static com.epam.pages.MainPage.HOME_PAGE;
 import static com.epam.pages.MainPage.ID_FRAME;
-import static com.epam.pages.MainPage.URL_HOME_PAGE;
 
 import com.epam.tc.hw4.AbstractChromeTest;
 import io.qameta.allure.Description;
@@ -20,7 +19,7 @@ public class Exercise1Test extends AbstractChromeTest {
     @Story("Index Page")
     public void exercise1() {
 
-        actionStep.openWebSite(URL_HOME_PAGE);
+        actionStep.openWebSite();
         assertStep.assertBrowserTitle(HOME_PAGE);
         actionStep.performLogin(user, password);
         assertStep.assertUserIsLogged(userFullName);

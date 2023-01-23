@@ -1,7 +1,6 @@
 package com.epam.tc.hw4.ex2;
 
 import static com.epam.pages.MainPage.HOME_PAGE;
-import static com.epam.pages.MainPage.URL_HOME_PAGE;
 import static com.epam.tc.hw4.steps.BaseStep.differentElementsPage;
 
 import com.epam.tc.hw4.AbstractChromeTest;
@@ -23,7 +22,7 @@ public class Exercise2Test extends AbstractChromeTest {
     @Story("Different Elements Page")
     public void exercise2()  {
 
-        actionStep.openWebSite(URL_HOME_PAGE);
+        actionStep.openWebSite();
         assertStep.assertBrowserTitle(HOME_PAGE);
         actionStep.performLogin(user, password);
         assertStep.assertUserIsLogged(userFullName);

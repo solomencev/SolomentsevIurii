@@ -5,9 +5,8 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class DifferentElementsPage {
+public class DifferentElementsPage extends BasePage {
 
     @FindBy(xpath = "//label[text()[contains(., ' Water')]]/*[@type='checkbox']")
     private WebElement checkBoxWater;
@@ -27,8 +26,7 @@ public class DifferentElementsPage {
     WaitActions waitActions;
 
     public DifferentElementsPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        waitActions = new WaitActions(driver);
+        super(driver);
     }
 
     public void selectRadioButtonSelen() {

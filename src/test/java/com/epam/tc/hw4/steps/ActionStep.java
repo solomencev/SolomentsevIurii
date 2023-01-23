@@ -10,8 +10,8 @@ public class ActionStep extends BaseStep {
     }
 
     @Step("Open test site by URL")
-    public void openWebSite(String website) {
-        webDriver.get(website);
+    public void openWebSite() {
+        mainPage.openMainPage();
     }
 
     @Step("Perform login as {username}|{password}")
@@ -21,17 +21,18 @@ public class ActionStep extends BaseStep {
 
     @Step("Switch to the {frame}")
     public void switchToIframe(String iframe) {
-        webDriver.switchTo().frame(iframe);
+        mainPage.switchToFrame();
     }
 
     @Step("Switch to original window back")
     public void switchToParentWindow() {
-        webDriver.switchTo().parentFrame();
+        mainPage.switchToHomePage();
     }
 
     @Step("Open through the header menu Service -> Different Elements Page")
     public void openDifferentElementsPage() {
-        mainPage.getHeaderMenu().clickServiceMenu().clickDifferentElements();
+        headerMenu.clickServiceMenu();
+        headerMenu.clickOnDifferentElementsServiceElement();
     }
 
     @Step("Select checkboxes {element}")

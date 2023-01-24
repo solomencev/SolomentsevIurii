@@ -31,8 +31,7 @@ public class ActionStep extends BaseStep {
 
     @Step("Open through the header menu Service -> Different Elements Page")
     public void openDifferentElementsPage() {
-        headerMenu.clickServiceMenu();
-        headerMenu.clickOnDifferentElementsServiceElement();
+        headerMenu.clickServiceMenuAndThenDifferentElementService();
     }
 
     @Step("Select checkboxes {element}")

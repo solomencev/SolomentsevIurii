@@ -1,6 +1,5 @@
 package com.epam.pages;
 
-import com.epam.pages.utils.WaitActions;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,20 +42,24 @@ public class DifferentElementsPage extends BasePage {
         dropdownYellow.click();
     }
 
-    public WebElement getCheckBoxWater() {
-        return checkBoxWater;
+    public boolean getCheckBoxWater() {
+        checkBoxWater.isSelected();
+        return true;
     }
 
-    public WebElement getCheckBoxWind() {
-        return checkBoxWind;
+    public boolean getCheckBoxWind() {
+        checkBoxWind.isSelected();
+        return true;
     }
 
-    public WebElement getRadioButtonSelen() {
-        return radioButtonSelen;
+    public boolean getRadioButtonSelen() {
+        radioButtonSelen.isSelected();
+        return true;
     }
 
-    public WebElement getDropdownYellow() {
-        return dropdownYellow;
+    public boolean getDropdownYellow() {
+        dropdownYellow.isSelected();
+        return true;
     }
 
     public List<WebElement> getLogs() {

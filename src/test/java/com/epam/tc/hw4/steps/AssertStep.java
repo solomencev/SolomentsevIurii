@@ -74,9 +74,27 @@ public class AssertStep extends BaseStep {
         softAssert.assertAll();
     }
 
-    @Step("Element is checked {element}")
-    public void assertElementIsSelected(WebElement element) {
-        softAssert.assertThat(element.isSelected()).as("Not selected").isTrue();
+    @Step("Checkbox Water is checked")
+    public void assertElementCheckBoxWaterIsSelected() {
+        softAssert.assertThat(differentElementsPage.getCheckBoxWater()).as("Not selected").isTrue();
+        softAssert.assertAll();
+    }
+
+    @Step("Radiobutton selen is checked")
+    public void assertElementRadioButtonSelenIsSelected() {
+        softAssert.assertThat(differentElementsPage.getRadioButtonSelen()).as("Not selected").isTrue();
+        softAssert.assertAll();
+    }
+
+    @Step("Checkbox Wind is checked")
+    public void assertElementCheckBoxWindIsSelected() {
+        softAssert.assertThat(differentElementsPage.getCheckBoxWind()).as("Not selected").isTrue();
+        softAssert.assertAll();
+    }
+
+    @Step("Dropdown is selected")
+    public void assertElementDropdownYellowIsSelected() {
+        softAssert.assertThat(differentElementsPage.getDropdownYellow()).as("Not selected").isTrue();
         softAssert.assertAll();
     }
 

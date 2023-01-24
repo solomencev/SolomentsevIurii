@@ -31,10 +31,10 @@ public class Exercise2Test extends AbstractChromeTest {
         actionStep.selectCheckboxWind();
         actionStep.selectRadioSelen();
         actionStep.selectDropDownColorYellow();
-        assertStep.assertElementIsSelected(differentElementsPage.getCheckBoxWater());
-        assertStep.assertElementIsSelected(differentElementsPage.getCheckBoxWind());
-        assertStep.assertElementIsSelected(differentElementsPage.getRadioButtonSelen());
-        assertStep.assertElementIsSelected(differentElementsPage.getDropdownYellow());
+        assertStep.assertElementCheckBoxWaterIsSelected();
+        assertStep.assertElementCheckBoxWindIsSelected();
+        assertStep.assertElementRadioButtonSelenIsSelected();
+        assertStep.assertElementDropdownYellowIsSelected();
         assertStep.assertLogsForElements(LOGS);
     }
 }

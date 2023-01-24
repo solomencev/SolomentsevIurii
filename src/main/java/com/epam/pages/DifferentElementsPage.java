@@ -28,19 +28,19 @@ public class DifferentElementsPage extends BasePage {
     }
 
     public void selectRadioButtonSelen() {
-        radioButtonSelen.click(); //  private WebElement radioButtonSelen;
+        radioButtonSelen.click();
     }
 
     public void selectCheckBoxWind() {
-        checkBoxWind.click(); // private WebElement checkBoxWind;
+        checkBoxWind.click();
     }
 
     public void selectCheckBoxWater() {
-        checkBoxWater.click(); // private WebElement checkBoxWater;
+        checkBoxWater.click();
     }
 
     public void selectDropDownYellow() {
-        dropdownYellow.click(); // private WebElement dropdownYellow;
+        dropdownYellow.click();
     }
 
     public WebElement getCheckBoxWater() {

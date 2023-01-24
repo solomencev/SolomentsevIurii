@@ -1,6 +1,6 @@
-package com.epam.pages.hw4.fragments;
+package com.epam.tc.hw4.hw4.fragments;
 
-import com.epam.pages.BasePage;
+import com.epam.tc.hw4.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

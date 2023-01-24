@@ -1,4 +1,4 @@
-package com.epam.pages;
+package com.epam.tc.hw4;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

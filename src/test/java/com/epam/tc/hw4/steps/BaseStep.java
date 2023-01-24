@@ -1,9 +1,9 @@
 package com.epam.tc.hw4.steps;
 
-import com.epam.pages.DifferentElementsPage;
-import com.epam.pages.MainPage;
-import com.epam.pages.hw4.fragments.HeaderMenu;
 import com.epam.tc.hw4.AbstractChromeTest;
+import com.epam.tc.hw4.DifferentElementsPage;
+import com.epam.tc.hw4.MainPage;
+import com.epam.tc.hw4.hw4.fragments.HeaderMenu;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 

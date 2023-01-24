@@ -1,8 +1,7 @@
 package com.epam.tc.hw4.ex1;
 
-import static com.epam.pages.MainPage.HOME_PAGE;
-import static com.epam.pages.MainPage.ID_FRAME;
-import static com.epam.pages.MainPage.URL_HOME_PAGE;
+import static com.epam.tc.hw4.MainPage.HOME_PAGE;
+import static com.epam.tc.hw4.MainPage.ID_FRAME;
 
 import com.epam.tc.hw4.AbstractChromeTest;
 import io.qameta.allure.Description;

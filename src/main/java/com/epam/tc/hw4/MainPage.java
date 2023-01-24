@@ -1,7 +1,5 @@
-package com.epam.pages;
+package com.epam.tc.hw4;
 
-import com.epam.pages.hw4.fragments.HeaderMenu;
-import com.epam.pages.utils.WaitActions;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

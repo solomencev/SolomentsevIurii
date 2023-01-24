@@ -1,7 +1,6 @@
 package com.epam.tc.hw4.ex2;
 
-import static com.epam.pages.MainPage.HOME_PAGE;
-import static com.epam.tc.hw4.steps.BaseStep.differentElementsPage;
+import static com.epam.tc.hw4.MainPage.HOME_PAGE;
 
 import com.epam.tc.hw4.AbstractChromeTest;
 import io.qameta.allure.Description;

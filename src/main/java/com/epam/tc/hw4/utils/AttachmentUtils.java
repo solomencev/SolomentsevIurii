@@ -1,4 +1,4 @@
-package com.epam.pages.utils;
+package com.epam.tc.hw4.utils;
 
 import io.qameta.allure.Attachment;
 

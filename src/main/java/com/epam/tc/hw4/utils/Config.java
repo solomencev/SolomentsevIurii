@@ -1,4 +1,4 @@
-package com.epam.pages.utils;
+package com.epam.tc.hw4.utils;
 
 import java.io.File;
 import java.io.FileInputStream;

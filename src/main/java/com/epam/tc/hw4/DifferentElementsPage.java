@@ -42,24 +42,20 @@ public class DifferentElementsPage extends BasePage {
         dropdownYellow.click();
     }
 
-    public boolean getCheckBoxWater() {
-        checkBoxWater.isSelected();
-        return true;
+    public boolean isCheckBoxWaterSelected() {
+        return checkBoxWater.isSelected();
     }
 
-    public boolean getCheckBoxWind() {
-        checkBoxWind.isSelected();
-        return true;
+    public boolean isCheckBoxWindSelected() {
+        return checkBoxWind.isSelected();
     }
 
-    public boolean getRadioButtonSelen() {
-        radioButtonSelen.isSelected();
-        return true;
+    public boolean isRadioButtonSelenSelected() {
+        return radioButtonSelen.isSelected();
     }
 
-    public boolean getDropdownYellow() {
-        dropdownYellow.isSelected();
-        return true;
+    public boolean isDropdownYellowSelected() {
+        return dropdownYellow.isSelected();
     }
 
     public List<WebElement> getLogs() {

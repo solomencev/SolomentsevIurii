@@ -26,22 +26,22 @@ public class Exercise2Test extends AbstractChromeTest {
         /* Open through the header menu Service -> Different Elements Page. */
         headerMenu.clickServiceMenuAndThenDifferentElementService();
         /* Select checkboxes. */
-        differentElementsPage.getCheckBoxWater();
-        differentElementsPage.getCheckBoxWind();
+        differentElementsPage.isCheckBoxWaterSelected();
+        differentElementsPage.isCheckBoxWindSelected();
         /* Select radio. */
-        differentElementsPage.getRadioButtonSelen();
+        differentElementsPage.isRadioButtonSelenSelected();
         /* Select in dropdown. */
-        differentElementsPage.getDropdownYellow();
+        differentElementsPage.isDropdownYellowSelected();
         /* Assert that: for each checkbox there is an individual log row and value is corresponded to the status of
          * checkbox; for radio button there is a log row and value is corresponded to the status of radio button; for
          * dropdown there is a log row and value is corresponded to the selected value. */
-        softly.assertThat(differentElementsPage.getCheckBoxWater())
+        softly.assertThat(differentElementsPage.isCheckBoxWaterSelected())
               .as("Logs are not displayed").isTrue();
-        softly.assertThat(differentElementsPage.getCheckBoxWind())
+        softly.assertThat(differentElementsPage.isCheckBoxWindSelected())
               .as("Logs are not displayed").isTrue();
-        softly.assertThat(differentElementsPage.getRadioButtonSelen())
+        softly.assertThat(differentElementsPage.isRadioButtonSelenSelected())
                 .as("Logs are not displayed").isTrue();
-        softly.assertThat(differentElementsPage.getDropdownYellow())
+        softly.assertThat(differentElementsPage.isDropdownYellowSelected())
               .as("Logs are not displayed").isTrue();
         for (int i = 0; i < LOGS.size(); i++) {
             softly.assertThat(differentElementsPage.getLogs().get(i).getText()).contains(LOGS.get(i));

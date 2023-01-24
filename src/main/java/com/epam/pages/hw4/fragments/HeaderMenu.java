@@ -8,9 +8,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class HeaderMenu extends BasePage {
 
-    WaitActions waitActions;
-    private ServiceMenu serviceMenu;
-
     @FindBy(xpath = "//li[@class='dropdown']")
     private WebElement serviceMenuDropDown;
 

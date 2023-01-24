@@ -28,6 +28,4 @@ public class HeaderMenu extends BasePage {
     public void clickOnDifferentElementsServiceElement() {
         differentElementsServiceElement.click();
     }
-
-
 }

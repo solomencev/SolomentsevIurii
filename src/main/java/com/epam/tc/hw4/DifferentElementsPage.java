@@ -1,13 +1,11 @@
-package com.epam.pages;
+package com.epam.tc.hw4;
 
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import utils.WaitActions;
 
-public class DifferentElementsPage {
+public class DifferentElementsPage extends BasePage {
 
     @FindBy(xpath = "//label[text()[contains(., ' Water')]]/*[@type='checkbox']")
     private WebElement checkBoxWater;
@@ -24,27 +22,40 @@ public class DifferentElementsPage {
     @FindBy(css = ".panel-body-list.logs > li")
     private List<WebElement> logs;
 
-    WaitActions waitActions;
-
     public DifferentElementsPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        waitActions = new WaitActions(driver);
+        super(driver);
     }
 
-    public WebElement getCheckBoxWater() {
-        return checkBoxWater;
+    public void selectRadioButtonSelen() {
+        radioButtonSelen.click();
     }
 
-    public WebElement getCheckBoxWind() {
-        return checkBoxWind;
+    public void selectCheckBoxWind() {
+        checkBoxWind.click();
     }
 
-    public WebElement getRadioButtonSelen() {
-        return radioButtonSelen;
+    public void selectCheckBoxWater() {
+        checkBoxWater.click();
     }
 
-    public WebElement getDropdownYellow() {
-        return dropdownYellow;
+    public void selectDropDownYellow() {
+        dropdownYellow.click();
+    }
+
+    public boolean isCheckBoxWaterSelected() {
+        return checkBoxWater.isSelected();
+    }
+
+    public boolean isCheckBoxWindSelected() {
+        return checkBoxWind.isSelected();
+    }
+
+    public boolean isRadioButtonSelenSelected() {
+        return radioButtonSelen.isSelected();
+    }
+
+    public boolean isDropdownYellowSelected() {
+        return dropdownYellow.isSelected();
     }
 
     public List<WebElement> getLogs() {

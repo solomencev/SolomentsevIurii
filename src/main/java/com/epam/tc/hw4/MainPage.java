@@ -1,17 +1,11 @@
-package com.epam.pages;
+package com.epam.tc.hw4;
 
-import com.epam.pages.fragments.HeaderMenu;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import utils.WaitActions;
 
-public class MainPage {
-
-    private HeaderMenu headerMenu;
-    WaitActions waitActions;
+public class MainPage extends BasePage {
 
     @FindBy(className = "benefit-icon")
     private List<WebElement> listOfImages;
@@ -48,11 +42,14 @@ public class MainPage {
 
     public static final String ID_FRAME = "frame";
     public static final String HOME_PAGE = "Home Page";
+    public static final String URL_HOME_PAGE = "https://jdi-testing.github.io/jdi-light/index.html";
 
     public MainPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        waitActions = new WaitActions(driver);
-        headerMenu = new HeaderMenu(driver);
+        super(driver);
+    }
+
+    public void openMainPage() {
+        driver.get(URL_HOME_PAGE);
     }
 
     public void login(String user, String password)  {
@@ -62,16 +59,20 @@ public class MainPage {
         loginSubmit.click();
     }
 
+    public void switchToFrame(String frame) {
+        driver.switchTo().frame(frame);
+    }
+
+    public void switchToHomePage() {
+        driver.switchTo().defaultContent();
+    }
+
     public String getUserName() {
         return loginName.getText();
     }
 
     public List<WebElement> getMenuList() {
         return itemsInHeader;
-    }
-
-    public HeaderMenu getHeaderMenu() {
-        return headerMenu;
     }
 
     public List<WebElement> getListOfImages() {

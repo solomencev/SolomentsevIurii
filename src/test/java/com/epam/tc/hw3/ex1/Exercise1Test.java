@@ -18,7 +18,7 @@ public class Exercise1Test extends AbstractChromeTest {
                     "To be multiplatform",
                     "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
 
-    @Test(groups = {"HW3"})
+    @Test(groups = {"HW4"})
     public void exercise1() {
         SoftAssertions softly = new SoftAssertions();
 

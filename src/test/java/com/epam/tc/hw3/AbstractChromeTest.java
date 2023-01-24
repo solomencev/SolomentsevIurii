@@ -1,17 +1,15 @@
 package com.epam.tc.hw3;
 
-import com.epam.pages.DifferentElementsPage;
-import com.epam.pages.MainPage;
+import com.epam.tc.hw4.DifferentElementsPage;
+import com.epam.tc.hw4.MainPage;
+import com.epam.tc.hw4.utils.Config;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import utils.Config;
 
 public class AbstractChromeTest {
 

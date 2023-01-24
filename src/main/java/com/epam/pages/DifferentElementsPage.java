@@ -23,8 +23,6 @@ public class DifferentElementsPage extends BasePage {
     @FindBy(css = ".panel-body-list.logs > li")
     private List<WebElement> logs;
 
-    WaitActions waitActions;
-
     public DifferentElementsPage(WebDriver driver) {
         super(driver);
     }

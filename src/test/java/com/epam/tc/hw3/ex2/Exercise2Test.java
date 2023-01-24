@@ -1,6 +1,6 @@
 package com.epam.tc.hw3.ex2;
 
-import static com.epam.pages.MainPage.HOME_PAGE;
+import static com.epam.tc.hw4.MainPage.HOME_PAGE;
 import static com.epam.tc.hw4.steps.BaseStep.headerMenu;
 
 import com.epam.tc.hw3.AbstractChromeTest;
@@ -24,30 +24,25 @@ public class Exercise2Test extends AbstractChromeTest {
         /* Assert Username is loggined.*/
         softly.assertThat(mainPage.getUserName()).as("Roman Iovlev is not logged").isEqualTo(userFullName);
         /* Open through the header menu Service -> Different Elements Page. */
-        /*mainPage.getHeaderMenu()
-                .clickServiceMenu()
-                .clickDifferentElements();*/
-        headerMenu.clickServiceMenu();
-        headerMenu.clickOnDifferentElementsServiceElement();
+        headerMenu.clickServiceMenuAndThenDifferentElementService();
         /* Select checkboxes. */
-        differentElementsPage.getCheckBoxWater().click();
-        differentElementsPage.getCheckBoxWind().click();
+        differentElementsPage.getCheckBoxWater();
+        differentElementsPage.getCheckBoxWind();
         /* Select radio. */
-        differentElementsPage.getRadioButtonSelen().click();
+        differentElementsPage.getRadioButtonSelen();
         /* Select in dropdown. */
-        differentElementsPage.getDropdownYellow().click();
+        differentElementsPage.getDropdownYellow();
         /* Assert that: for each checkbox there is an individual log row and value is corresponded to the status of
          * checkbox; for radio button there is a log row and value is corresponded to the status of radio button; for
          * dropdown there is a log row and value is corresponded to the selected value. */
-        softly.assertThat(differentElementsPage.getCheckBoxWater().isSelected()).as("Logs are not displayed")
-                .isTrue();
-        softly.assertThat(differentElementsPage.getCheckBoxWind().isSelected()).as("Logs are not displayed")
-                .isTrue();
-        softly.assertThat(differentElementsPage.getRadioButtonSelen().isSelected())
-                .as("Logs are not displayed")
-                .isTrue();
-        softly.assertThat(differentElementsPage.getDropdownYellow().isSelected()).as("Logs are not displayed")
-                .isTrue();
+        softly.assertThat(differentElementsPage.getCheckBoxWater())
+              .as("Logs are not displayed").isTrue();
+        softly.assertThat(differentElementsPage.getCheckBoxWind())
+              .as("Logs are not displayed").isTrue();
+        softly.assertThat(differentElementsPage.getRadioButtonSelen())
+                .as("Logs are not displayed").isTrue();
+        softly.assertThat(differentElementsPage.getDropdownYellow())
+              .as("Logs are not displayed").isTrue();
         for (int i = 0; i < LOGS.size(); i++) {
             softly.assertThat(differentElementsPage.getLogs().get(i).getText()).contains(LOGS.get(i));
         }

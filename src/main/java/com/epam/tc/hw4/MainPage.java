@@ -59,7 +59,7 @@ public class MainPage extends BasePage {
         loginSubmit.click();
     }
 
-    public void switchToFrame() {
+    public void switchToFrame(String frame) {
         driver.switchTo().frame(frame);
     }
 

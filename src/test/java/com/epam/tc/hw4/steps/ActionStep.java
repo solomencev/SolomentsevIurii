@@ -21,7 +21,7 @@ public class ActionStep extends BaseStep {
 
     @Step("Switch to the {frame}")
     public void switchToIframe(String iframe) {
-        mainPage.switchToFrame();
+        mainPage.switchToFrame(iframe);
     }
 
     @Step("Switch to original window back")

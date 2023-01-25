@@ -1,7 +1,8 @@
 package com.epam.tc.hw5.steps;
 
 
-import io.qameta.allure.Step;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
 public class ActionStep extends BaseStep {
@@ -9,47 +10,47 @@ public class ActionStep extends BaseStep {
         super(webDriver);
     }
 
-    @Step("Open test site by URL")
+    @Given("User opens website")
     public void openWebSite() {
-        mainPage.openMainPage();
+        actionStep.openWebSite();
     }
 
-    @Step("Perform login as {username}|{password}")
+    @When("Perform login as {username}|{password}")
     public void performLogin(String user, String password) {
         mainPage.login(user, password);
     }
 
-    @Step("Switch to the {frame}")
+    @When("Switch to the {frame}")
     public void switchToIframe(String iframe) {
         mainPage.switchToFrame(iframe);
     }
 
-    @Step("Switch to original window back")
+    @When("Switch to original window back")
     public void switchToParentWindow() {
         mainPage.switchToHomePage();
     }
 
-    @Step("Open through the header menu Service -> Different Elements Page")
+    @When("Open through the header menu Service -> Different Elements Page")
     public void openDifferentElementsPage() {
         headerMenu.clickServiceMenuAndThenDifferentElementService();
     }
 
-    @Step("Select checkboxes {element}")
+    @When("Select checkboxes {element}")
     public void selectCheckboxWind() {
         differentElementsPage.selectCheckBoxWind();
     }
 
-    @Step("Select checkboxes {element}")
+    @When("Select checkboxes {element}")
     public void selectCheckboxWater() {
         differentElementsPage.selectCheckBoxWater();
     }
 
-    @Step("Select radio {element}")
+    @When("Select radio {element}")
     public void selectRadioSelen() {
         differentElementsPage.selectRadioButtonSelen();
     }
 
-    @Step("Select in dropdown {element}")
+    @When("Select in dropdown {element}")
     public void selectDropDownColorYellow() {
         differentElementsPage.selectDropDownYellow();
     }

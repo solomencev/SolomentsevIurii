@@ -3,24 +3,32 @@ package com.epam.tc.hw5.steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import io.cucumber.messages.types.Hook;
 import org.openqa.selenium.WebDriver;
 
 public class ActionStep extends BaseStep {
-    public ActionStep(WebDriver webDriver) {
+
+    public ActionStep(WebDriver webDriver, Hook hook) {
         super(webDriver);
+        this.hook = hook;
     }
+
+    private Hook hook;
+    /*public ActionStep(WebDriver webDriver) {
+        super(webDriver);
+    }*/
 
     @Given("User opens website")
     public void openWebSite() {
         actionStep.openWebSite();
     }
 
-    @When("Perform login as {username}|{password}")
+    @When("Perform login")
     public void performLogin(String user, String password) {
         mainPage.login(user, password);
     }
 
-    @When("Switch to the {frame}")
+    @When("Switch to the frame")
     public void switchToIframe(String iframe) {
         mainPage.switchToFrame(iframe);
     }
@@ -35,22 +43,22 @@ public class ActionStep extends BaseStep {
         headerMenu.clickServiceMenuAndThenDifferentElementService();
     }
 
-    @When("Select checkboxes {element}")
+    @When("Select checkbox Wind")
     public void selectCheckboxWind() {
         differentElementsPage.selectCheckBoxWind();
     }
 
-    @When("Select checkboxes {element}")
+    @When("Select checkbox Water")
     public void selectCheckboxWater() {
         differentElementsPage.selectCheckBoxWater();
     }
 
-    @When("Select radio {element}")
+    @When("Select radio Selen")
     public void selectRadioSelen() {
         differentElementsPage.selectRadioButtonSelen();
     }
 
-    @When("Select in dropdown {element}")
+    @When("Select in dropdown Yellow")
     public void selectDropDownColorYellow() {
         differentElementsPage.selectDropDownYellow();
     }

@@ -1,6 +1,5 @@
-Feature: Make some changes on website?
-  test1
+Feature: Test1
 
-  Scenario: test1
+  Scenario: Test1
     Given User opens website
 

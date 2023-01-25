@@ -12,14 +12,6 @@ public class ThenStep extends AbstractChromeTest {
 
     AssertStep assertStep = new AssertStep(webDriver);
 
-    protected ThenStep(WebDriver webDriver) throws IOException {
-        super(webDriver);
-    }
-
-    public ThenStep() throws IOException {
-        super(webDriver);
-    }
-
     private static final int COUNT_OF_IMAGES_MAIN_PAGE = 4;
     private static final List<String> LOGS = List
         .of("Colors: value changed to Yellow", "metal: value changed to Selen", "Wind: condition changed to true",

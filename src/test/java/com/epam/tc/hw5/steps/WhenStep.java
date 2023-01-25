@@ -2,8 +2,6 @@ package com.epam.tc.hw5.steps;
 
 import com.epam.tc.hw5.AbstractChromeTest;
 import io.cucumber.java.en.When;
-import java.io.IOException;
-import org.openqa.selenium.WebDriver;
 
 public class WhenStep extends AbstractChromeTest {
 

@@ -11,9 +11,4 @@ public class GivenStep extends AbstractChromeTest {
     public void openWebSite() {
         actionStep.openWebSite();
     }
-
-    /*@Given("User opens JDI GitHub site")
-    public void openJdiGitHubWebsite() {
-        actionStep.openWebSite();
-    }*/
 }

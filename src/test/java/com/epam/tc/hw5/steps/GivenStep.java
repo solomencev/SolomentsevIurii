@@ -5,7 +5,11 @@ import io.cucumber.java.en.Given;
 import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 
-public class GivenStep extends AbstractChromeTest {
+public class GivenStep extends BaseStep {
+
+    protected GivenStep(WebDriver webDriver) {
+        super(webDriver);
+    }
 
     @Given("User opens website")
     public void openWebSite() {

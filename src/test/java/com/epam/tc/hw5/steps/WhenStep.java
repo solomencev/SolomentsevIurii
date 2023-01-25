@@ -2,8 +2,13 @@ package com.epam.tc.hw5.steps;
 
 import com.epam.tc.hw5.AbstractChromeTest;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
 
-public class WhenStep extends AbstractChromeTest {
+public class WhenStep extends BaseStep {
+
+    protected WhenStep(WebDriver webDriver) {
+        super(webDriver);
+    }
 
     @When("User logins as Romain Iovlev")
     public void loginAsUserRomanIovlev() {

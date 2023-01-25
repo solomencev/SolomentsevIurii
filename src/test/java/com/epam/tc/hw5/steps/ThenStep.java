@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 
-public class ThenStep extends AbstractChromeTest {
+public class ThenStep extends BaseStep {
 
     AssertStep assertStep = new AssertStep(webDriver);
 
@@ -16,6 +16,10 @@ public class ThenStep extends AbstractChromeTest {
     private static final List<String> LOGS = List
         .of("Colors: value changed to Yellow", "metal: value changed to Selen", "Wind: condition changed to true",
             "Water: condition changed to true");
+
+    protected ThenStep(WebDriver webDriver) {
+        super(webDriver);
+    }
 
     @Then("title equals Home Page")
     public void titleEqualsHomePage() {

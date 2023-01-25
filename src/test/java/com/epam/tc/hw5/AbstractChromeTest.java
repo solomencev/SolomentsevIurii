@@ -4,8 +4,8 @@ import static com.epam.tc.hw4.utils.Config.getUserFullNameFromProperties;
 import static com.epam.tc.hw4.utils.Config.getUserNameFromProperties;
 import static com.epam.tc.hw4.utils.Config.getUserPasswordFromProperties;
 
-import com.epam.tc.hw5.steps.ActionStep;
-import com.epam.tc.hw5.steps.AssertStep;
+import com.epam.tc.hw4.steps.ActionStep;
+import com.epam.tc.hw4.steps.AssertStep;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.List;
 import java.util.concurrent.TimeUnit;

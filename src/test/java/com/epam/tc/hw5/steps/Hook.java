@@ -1,5 +1,6 @@
-package com.epam.tc.hw5;
+package com.epam.tc.hw5.steps;
 
+import com.epam.tc.hw5.DriverSetup;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 

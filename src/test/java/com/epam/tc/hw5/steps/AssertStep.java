@@ -1,23 +1,34 @@
 package com.epam.tc.hw5.steps;
 
-import com.epam.tc.hw5.Hook;
+import static com.epam.tc.hw4.MainPage.HOME_PAGE;
+import static com.epam.tc.hw4.steps.BaseStep.differentElementsPage;
+import static com.epam.tc.hw4.steps.BaseStep.mainPage;
+
+import com.epam.tc.hw4.DifferentElementsPage;
+import com.epam.tc.hw4.MainPage;
+import com.epam.tc.hw4.hw4.fragments.HeaderMenu;
+import com.epam.tc.hw5.DriverSetup;
 import io.cucumber.java.en.Then;
 import java.util.List;
-import org.openqa.selenium.WebDriver;
+import org.assertj.core.api.SoftAssertions;
 
-public class AssertStep extends BaseStep {
-    public AssertStep(WebDriver webDriver) {
-        super(webDriver);
-    }
+public class AssertStep extends DriverSetup {
+
+    private static final List<String> LOGS = List
+        .of("Colors: value changed to Yellow", "metal: value changed to Selen", "Wind: condition changed to true",
+            "Water: condition changed to true");
+    SoftAssertions softAssert = new SoftAssertions();
+    MainPage mainPage = new MainPage(driver);
+    DifferentElementsPage differentElementsPage = new DifferentElementsPage(driver);
 
     @Then("Browser title equals 'Home Page'")
-    public void assertBrowserTitle(String title) {
-        softAssert.assertThat(webDriver.getTitle()).as("Incorrect title").isEqualTo(title);
+    public void assertBrowserTitle() {
+        softAssert.assertThat(mainPage.getBrowserTitleName()).as("Incorrect title").isEqualTo(HOME_PAGE);
         softAssert.assertAll();
     }
 
-    @Then("User is logged")
-    public void assertUserIsLogged(String userFullName) {
+    @Then("User is logged as {string}")
+    public void user_is_logged_as(String userFullName) {
         softAssert.assertThat(mainPage.getUserName()).as("Incorrect user name").isEqualTo(userFullName);
         softAssert.assertAll();
     }
@@ -97,9 +108,9 @@ public class AssertStep extends BaseStep {
         softAssert.assertThat(differentElementsPage.isDropdownYellowSelected()).as("Not selected").isTrue();
         softAssert.assertAll();
     }
-
-    @Then("Log row and value is corresponded to the selected value.")
-    public void assertLogsForElements(List<String> textForLogs) {
+    
+    @Then("Log row and value is corresponded to the selected value.{stringList}")
+    public void log_row_and_value_is_corresponded_to_the_selected_value(List<String> textForLogs) {
         for (int i = 0; i < textForLogs.size(); i++) {
             softAssert.assertThat(differentElementsPage.getLogs().get(i).getText())
                       .as("Not selected").contains(textForLogs.get(i));

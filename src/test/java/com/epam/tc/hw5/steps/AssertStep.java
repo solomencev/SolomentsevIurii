@@ -1,12 +1,9 @@
 package com.epam.tc.hw5.steps;
 
 import static com.epam.tc.hw4.MainPage.HOME_PAGE;
-import static com.epam.tc.hw4.steps.BaseStep.differentElementsPage;
-import static com.epam.tc.hw4.steps.BaseStep.mainPage;
 
 import com.epam.tc.hw4.DifferentElementsPage;
 import com.epam.tc.hw4.MainPage;
-import com.epam.tc.hw4.hw4.fragments.HeaderMenu;
 import com.epam.tc.hw5.DriverSetup;
 import io.cucumber.java.en.Then;
 import java.util.List;

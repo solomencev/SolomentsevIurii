@@ -5,9 +5,12 @@ import static com.epam.tc.hw4.MainPage.HOME_PAGE;
 import com.epam.tc.hw4.DifferentElementsPage;
 import com.epam.tc.hw4.MainPage;
 import com.epam.tc.hw5.DriverSetup;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import java.util.Collection;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
+import org.openqa.selenium.WebElement;
 
 public class AssertStep extends DriverSetup {
 
@@ -105,13 +108,42 @@ public class AssertStep extends DriverSetup {
         softAssert.assertThat(differentElementsPage.isDropdownYellowSelected()).as("Not selected").isTrue();
         softAssert.assertAll();
     }
-    
-    @Then("Log row and value is corresponded to the selected value.{stringList}")
-    public void log_row_and_value_is_corresponded_to_the_selected_value(List<String> textForLogs) {
-        for (int i = 0; i < textForLogs.size(); i++) {
-            softAssert.assertThat(differentElementsPage.getLogs().get(i).getText())
-                      .as("Not selected").contains(textForLogs.get(i));
-        }
+
+    @Then("Checkbox Water is logged")
+    public void checkboxWaterLogged() {
+        softAssert.assertThat(logsContainsItem(differentElementsPage
+            .getLogs(), "Water: condition changed to true")).as("Not logged").isTrue();
         softAssert.assertAll();
     }
+
+    @And("Checkbox Wind is logged")
+    public void checkboxWindLogged() {
+        softAssert.assertThat(logsContainsItem(differentElementsPage
+            .getLogs(), "Wind: condition changed to true")).as("Not logged").isTrue();
+        softAssert.assertAll();
+    }
+
+    @And("Radiobutton Selen is logged")
+    public void radioButtonSelenLogged() {
+        softAssert.assertThat(logsContainsItem(differentElementsPage
+            .getLogs(), "metal: value changed to Selen")).as("Not logged").isTrue();
+        softAssert.assertAll();
+    }
+
+    @And("Dropdown Yellow is logged")
+    public void dropdownYellowLogged() {
+        softAssert.assertThat(logsContainsItem(differentElementsPage
+            .getLogs(), "Colors: value changed to Yellow")).as("Not logged").isTrue();
+        softAssert.assertAll();
+    }
+
+    private static boolean logsContainsItem(Collection<WebElement> logs, String expectedEntry) {
+        for (var logElement : logs) {
+            if (logElement.getText().contains(expectedEntry)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

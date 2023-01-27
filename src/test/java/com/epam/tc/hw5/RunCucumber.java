@@ -7,7 +7,4 @@ import io.cucumber.testng.CucumberOptions;
     features = "src/test/resources/features",
     glue = {"com.epam.tc.hw5.steps"},
     publish = true)
-public class RunCucumber extends AbstractTestNGCucumberTests {
-
-}
-
+public class RunCucumber extends AbstractTestNGCucumberTests { }

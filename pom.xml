@@ -168,11 +168,17 @@
         </profile>
         <profile>
             <id>HW4Tests</id>
+            <properties>
+                <suite.xml.file>hw4test.xml</suite.xml.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>HW5Tests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml.file>hw4test.xml</suite.xml.file>
+                <suite.xml.file>hw5test.xml</suite.xml.file>
             </properties>
         </profile>
         <profile>

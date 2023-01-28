@@ -1,10 +1,12 @@
 package com.epam.tc.hw5.steps;
 
-import static com.epam.tc.hw4.MainPage.HOME_PAGE;
+import static com.epam.tc.hw5.MainPage.HOME_PAGE;
+import static com.epam.tc.hw5.UserTablePage.USER_TABLE_TAB;
 
-import com.epam.tc.hw4.DifferentElementsPage;
-import com.epam.tc.hw4.MainPage;
+import com.epam.tc.hw5.DifferentElementsPage;
 import com.epam.tc.hw5.DriverSetup;
+import com.epam.tc.hw5.MainPage;
+import com.epam.tc.hw5.UserTablePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import java.util.Collection;
@@ -20,10 +22,17 @@ public class AssertStep extends DriverSetup {
     SoftAssertions softAssert = new SoftAssertions();
     MainPage mainPage = new MainPage(driver);
     DifferentElementsPage differentElementsPage = new DifferentElementsPage(driver);
+    UserTablePage userTablePage = new UserTablePage(driver);
 
     @Then("Browser title equals 'Home Page'")
-    public void assertBrowserTitle() {
-        softAssert.assertThat(mainPage.getBrowserTitleName()).as("Incorrect title").isEqualTo(HOME_PAGE);
+    public void assertBrowserTitleHomePage() {
+        softAssert.assertThat(userTablePage.getBrowserTitleName()).as("Incorrect title").isEqualTo(HOME_PAGE);
+        softAssert.assertAll();
+    }
+
+    @Then("{string} page should be opened")
+    public void assertBrowserTitleUserTable(String title) {
+        softAssert.assertThat(mainPage.getBrowserTitleName()).as("Incorrect title").isEqualTo(USER_TABLE_TAB);
         softAssert.assertAll();
     }
 

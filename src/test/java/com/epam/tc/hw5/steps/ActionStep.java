@@ -1,9 +1,11 @@
 package com.epam.tc.hw5.steps;
 
-import com.epam.tc.hw4.DifferentElementsPage;
-import com.epam.tc.hw4.MainPage;
-import com.epam.tc.hw4.hw4.fragments.HeaderMenu;
+import com.epam.tc.hw5.DifferentElementsPage;
 import com.epam.tc.hw5.DriverSetup;
+import com.epam.tc.hw5.MainPage;
+import com.epam.tc.hw5.UserTablePage;
+import com.epam.tc.hw5.fragments.HeaderMenu;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
@@ -13,8 +15,15 @@ public class ActionStep extends DriverSetup {
     DifferentElementsPage differentElementsPage = new DifferentElementsPage(driver);
     HeaderMenu headerMenu  = new HeaderMenu(driver);
 
+    UserTablePage userTablePage = new UserTablePage(driver);
+
     @Given("User opens website")
     public void openWebSite() {
+        mainPage.openMainPage();
+    }
+
+    @Given("I open JDI GitHub site")
+    public void openJdiGitHubWebsite() {
         mainPage.openMainPage();
     }
 
@@ -37,6 +46,18 @@ public class ActionStep extends DriverSetup {
     public void openDifferentElementsPage() {
         headerMenu.clickServiceMenuAndThenDifferentElementService();
     }
+
+    @When("I click on {string} button in Header")
+    public void openServiceMenuInHeader(String string) {
+        headerMenu.clickServiceMenu();
+    }
+
+    @When("I click on {string} button in Service dropdown")
+    public void clickUserTableItemInServiceMenuDropDown(String string) {
+        headerMenu.clickUserTablePageElement();
+    }
+
+
 
     @When("Select checkbox Wind")
     public void selectCheckboxWind() {

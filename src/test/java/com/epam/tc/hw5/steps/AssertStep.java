@@ -7,8 +7,10 @@ import com.epam.tc.hw5.DifferentElementsPage;
 import com.epam.tc.hw5.DriverSetup;
 import com.epam.tc.hw5.MainPage;
 import com.epam.tc.hw5.UserTablePage;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
@@ -16,9 +18,6 @@ import org.openqa.selenium.WebElement;
 
 public class AssertStep extends DriverSetup {
 
-    private static final List<String> LOGS = List
-        .of("Colors: value changed to Yellow", "metal: value changed to Selen", "Wind: condition changed to true",
-            "Water: condition changed to true");
     SoftAssertions softAssert = new SoftAssertions();
     MainPage mainPage = new MainPage(driver);
     DifferentElementsPage differentElementsPage = new DifferentElementsPage(driver);
@@ -146,6 +145,62 @@ public class AssertStep extends DriverSetup {
         softAssert.assertAll();
     }
 
+    @And("{int} Number Type Dropdowns should be displayed on Users Table on User Table Page")
+    public void numberTypeDropdownsShouldDisplayedOnUsersTableOnUserTablePage(int numberOfDropDowns) {
+        softAssert.assertThat(userTablePage.getNumberTypeDropdowns().size()).isEqualTo(numberOfDropDowns);
+    }
+
+    @And("{int} Usernames should be displayed on Users Table on User Table Page")
+    public void usernamesShouldBeDisplayedUsersTableOnUserTablePage(int numberOfUsers) {
+        softAssert.assertThat(userTablePage.getUsers().size()).isEqualTo(numberOfUsers);
+    }
+
+    @And("{int} Description texts under images should be displayed on Users Table on User Table Page")
+    public void descriptionTextsUnderImagesShouldBeDisplayedUsersTableOnUserTablePage(int numberOfDescriptions) {
+        softAssert.assertThat(userTablePage.getDescriptions().size()).isEqualTo(numberOfDescriptions);
+    }
+
+    @And("{int} checkboxes should be displayed on Users Table on User Table Page")
+    public void checkboxesShouldBeDisplayedUsersTableOnUserTablePage(int numberOfCheckboxes) {
+        softAssert.assertThat(userTablePage.getCheckboxes().size()).isEqualTo(numberOfCheckboxes);
+    }
+
+    @Then("User table should contain following values:")
+    public void userTableContainValues(DataTable dataTable) {
+        List<List<String>> userTable = dataTable.rows(1).cells();
+        List<String> number = new ArrayList<>();
+        List<String> user = new ArrayList<>();
+        List<String> description = new ArrayList<>();
+        for (List<String> element : userTable) {
+            number.add(element.get(0));
+            user.add(element.get(1));
+            description.add(element.get(2));
+        }
+        softAssert.assertThat(userTablePage.getNumberFromTable())
+              .as("Incorrect numbers")
+              .isEqualTo(number);
+        softAssert.assertThat(userTablePage.getUserFromTable())
+              .as("Incorrect users")
+              .isEqualTo(user);
+        softAssert.assertThat(userTablePage.getDescriptionFromTable())
+              .as("Incorrect description")
+              .isEqualTo(description);
+        softAssert.assertAll();
+    }
+
+    @Then("droplist should contain values in column Type for user {string}")
+    public void droplistContainValuesInColumn(String userName, io.cucumber.datatable.DataTable dataTable) {
+        List<List<String>> valuesTable = dataTable.rows(1).cells();
+        List<String> values = new ArrayList<>();
+        for (List<String> element : valuesTable) {
+            values.add(element.get(0));
+        }
+        softAssert.assertThat(userTablePage.getDroplistValues(userName))
+              .as("Incorrect values in dropdown")
+              .isEqualTo(values);
+        softAssert.assertAll();
+    }
+
     private static boolean logsContainsItem(Collection<WebElement> logs, String expectedEntry) {
         for (var logElement : logs) {
             if (logElement.getText().contains(expectedEntry)) {
@@ -154,5 +209,4 @@ public class AssertStep extends DriverSetup {
         }
         return false;
     }
-
 }

@@ -10,7 +10,6 @@ import com.epam.tc.hw5.UserTablePage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import io.qameta.allure.Step;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

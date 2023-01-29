@@ -5,7 +5,6 @@ import com.epam.tc.hw5.DriverSetup;
 import com.epam.tc.hw5.MainPage;
 import com.epam.tc.hw5.UserTablePage;
 import com.epam.tc.hw5.fragments.HeaderMenu;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
@@ -14,7 +13,6 @@ public class ActionStep extends DriverSetup {
     MainPage mainPage = new MainPage(driver);
     DifferentElementsPage differentElementsPage = new DifferentElementsPage(driver);
     HeaderMenu headerMenu  = new HeaderMenu(driver);
-
     UserTablePage userTablePage = new UserTablePage(driver);
 
     @Given("User opens website")
@@ -56,8 +54,6 @@ public class ActionStep extends DriverSetup {
     public void clickUserTableItemInServiceMenuDropDown(String string) {
         headerMenu.clickUserTablePageElement();
     }
-
-
 
     @When("Select checkbox Wind")
     public void selectCheckboxWind() {

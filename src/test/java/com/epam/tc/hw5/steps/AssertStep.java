@@ -10,6 +10,7 @@ import com.epam.tc.hw5.UserTablePage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.qameta.allure.Step;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -200,6 +201,12 @@ public class AssertStep extends DriverSetup {
               .isEqualTo(values);
         softAssert.assertAll();
     }
+
+    @Then("1 log row has {string} text in log section")
+    public void logRowHasTextInLogSection(String log) {
+        softAssert.assertThat(userTablePage.logsAfterSelectingVipCheckbox(log)).as("Fail").isTrue();
+    }
+
 
     private static boolean logsContainsItem(Collection<WebElement> logs, String expectedEntry) {
         for (var logElement : logs) {

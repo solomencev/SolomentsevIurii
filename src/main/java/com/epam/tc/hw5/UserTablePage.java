@@ -1,7 +1,5 @@
 package com.epam.tc.hw5;
 
-import io.cucumber.datatable.DataTable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.openqa.selenium.By;
@@ -12,8 +10,6 @@ import org.openqa.selenium.support.FindBy;
 public class UserTablePage extends BasePage {
     
     public static final String USER_TABLE_TAB = "User Table";
-    public static final String URL_HOME_PAGE = "https://jdi-testing.github.io/jdi-light/index.html";
-
     @FindBy(xpath = "//tbody//select")
     public List<WebElement> listOfDropdowns;
 
@@ -64,24 +60,8 @@ public class UserTablePage extends BasePage {
         return checkboxes;
     }
 
-    public List<WebElement> getUserTableRows() {
-        return userTableRows;
-    }
-
-    public List<WebElement> getLogs() {
-        return logs;
-    }
-
-    public List<WebElement> getListOfDropdowns() {
-        return listOfDropdowns;
-    }
-
     public List<WebElement> getNumberTypeDropdowns() {
         return numberTypeDropdowns;
-    }
-
-    public List<WebElement> getFirstDropdownValues() {
-        return firstDropdownValues;
     }
 
     public List<String> getNumberFromTable() {
@@ -109,5 +89,16 @@ public class UserTablePage extends BasePage {
         return dropdownValues.stream()
                              .map(WebElement::getText)
                              .collect(Collectors.toList());
+    }
+
+    public void selectVipCheckbox(String userName) {
+        driver.findElement(By.xpath(".//*[contains(text(),'" + userName + "')]/../..//input"))
+              .click();
+    }
+
+    public boolean logsAfterSelectingVipCheckbox(String logText) {
+        By logPath = new By.ByXPath("//li[contains(. ,'" + logText + "')]");
+        WebElement log = driver.findElement(logPath);
+        return log.isDisplayed();
     }
 }

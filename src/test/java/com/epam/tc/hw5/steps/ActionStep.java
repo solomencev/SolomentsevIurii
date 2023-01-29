@@ -78,4 +78,9 @@ public class ActionStep extends DriverSetup {
     public void selectDropDownColorYellow() {
         differentElementsPage.selectDropDownYellow();
     }
+
+    @When("I select vip checkbox for {string}")
+    public void selectVipCheckboxForUser(String name) {
+        userTablePage.selectVipCheckbox(name);
+    }
 }

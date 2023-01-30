@@ -44,8 +44,6 @@ public abstract class AbstractChromeTest {
     public void setup(ITestContext context,
                       @Optional("false") final boolean isLocal, final String hub, final String browser) {
         webDriver = DriverFabric.getWebDriver(isLocal, hub, browser);
-        //WebDriverManager.chromedriver().setup();
-        //webDriver = new ChromeDriver();
         assertStep = new AssertStep(webDriver);
         actionStep = new ActionStep(webDriver);
         webDriver.manage().window().maximize();

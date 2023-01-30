@@ -6,11 +6,9 @@ import static com.epam.tc.hw4.utils.Config.getUserPasswordFromProperties;
 
 import com.epam.tc.hw6.steps.ActionStep;
 import com.epam.tc.hw6.steps.AssertStep;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;

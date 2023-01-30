@@ -23,123 +23,47 @@ public class AssertStep extends DriverSetup {
     DifferentElementsPage differentElementsPage = new DifferentElementsPage(driver);
     UserTablePage userTablePage = new UserTablePage(driver);
 
-    @Then("Browser title equals 'Home Page'")
-    public void assertBrowserTitleHomePage() {
+    @Then("Browser title should be 'Home Page'")
+    public void assertUserTablePageIsOpened() {
         softAssert.assertThat(userTablePage.getBrowserTitleName()).as("Incorrect title").isEqualTo(HOME_PAGE);
         softAssert.assertAll();
     }
 
     @Then("{string} page should be opened")
-    public void assertBrowserTitleUserTable(String title) {
+    public void assertHomePageIsOpened(String title) {
         softAssert.assertThat(mainPage.getBrowserTitleName()).as("Incorrect title").isEqualTo(USER_TABLE_TAB);
         softAssert.assertAll();
     }
 
     @Then("User is logged as {string}")
-    public void user_is_logged_as(String userFullName) {
+    public void assertUserIsLogged(String userFullName) {
         softAssert.assertThat(mainPage.getUserName()).as("Incorrect user name").isEqualTo(userFullName);
         softAssert.assertAll();
     }
 
-    @Then("Assert that there are 4 items on header section are displayed and they have proper texts")
-    public void assertItemsInHeader(List<String> listItemsHeader) {
-        for (int i = 0; i < listItemsHeader.size(); i++) {
-            softAssert.assertThat(mainPage.getMenuList().get(i).getText()).as("Wrong text")
-                      .isEqualTo(listItemsHeader.get(i));
-            softAssert.assertThat(mainPage.getMenuList().get(i).isDisplayed()).as("Not displayed").isTrue();
-        }
-        softAssert.assertAll();
-    }
-
-    @Then("Assert that there are 4 images on the Index Page and they are displayed")
-    public void  assertImagesOnIndexPage(int countOfImagesOnIndexPage) {
-        softAssert.assertThat(mainPage.getListOfImages().size()).as("Incorrect number of items")
-              .isEqualTo(countOfImagesOnIndexPage);
-        for (int i = 0; i < countOfImagesOnIndexPage; i++) {
-            softAssert.assertThat(mainPage.getListOfTextUnderImages().get(i).isDisplayed())
-                      .as("Not displayed").isTrue();
-        }
-        softAssert.assertAll();
-    }
-
-    @Then("Assert that there are 4 texts on the Index Page under icons and they have proper text")
-    public void  assertTextUnderIcons(List<String> textUnderImages) {
-        for (int i = 0; i < mainPage.getListOfTextUnderImages().size() - 1; i++) {
-            softAssert.assertThat(mainPage.getListOfTextUnderImages().get(i).getText())
-                      .as("Wrong text").isEqualTo(textUnderImages
-                .get(i));
-        }
-        softAssert.assertAll();
-    }
-
-    @Then("Assert that there is the iframe with “Frame Button” exist")
-    public void assertIframeButtonExist() {
-        softAssert.assertThat(mainPage.getFrame().isDisplayed()).as("Not displayed").isTrue();
-        softAssert.assertAll();
-    }
-
-    @Then("Check that there is 'Frame Button' in the iframe")
-    public void assertFrameButtonIsDisplayed() {
-        softAssert.assertThat(mainPage.getFrameButton().isDisplayed()).as("Not displayed").isTrue();
-        softAssert.assertAll();
-    }
-
-    @Then("Assert that there are 5 items in the Left Section are displayed and they have proper text")
-    public void  assertItemsInLeftSection(List<String> leftMenuItems) {
-        for (int i = 0; i < mainPage.getLeftMenu().size() - 1; i++) {
-            softAssert.assertThat(mainPage.getLeftMenu().get(i).getText())
-                      .as("Wrong text").isEqualTo(leftMenuItems.get(i));
-        }
-        softAssert.assertAll();
-    }
-
-    @Then("Checkbox Water is checked")
-    public void assertElementCheckBoxWaterIsSelected() {
-        softAssert.assertThat(differentElementsPage.isCheckBoxWaterSelected()).as("Not selected").isTrue();
-        softAssert.assertAll();
-    }
-
-    @Then("Radiobutton selen is checked")
-    public void assertElementRadioButtonSelenIsSelected() {
-        softAssert.assertThat(differentElementsPage.isRadioButtonSelenSelected()).as("Not selected").isTrue();
-        softAssert.assertAll();
-    }
-
-    @Then("Checkbox Wind is checked")
-    public void assertElementCheckBoxWindIsSelected() {
-        softAssert.assertThat(differentElementsPage.isCheckBoxWindSelected()).as("Not selected").isTrue();
-        softAssert.assertAll();
-    }
-
-    @Then("Dropdown is selected")
-    public void assertElementDropdownYellowIsSelected() {
-        softAssert.assertThat(differentElementsPage.isDropdownYellowSelected()).as("Not selected").isTrue();
-        softAssert.assertAll();
-    }
-
-    @Then("Checkbox Water is logged")
-    public void checkboxWaterLogged() {
+    @Then("Checkbox Water should be logged")
+    public void checkboxWaterShouldBeLogged() {
         softAssert.assertThat(logsContainsItem(differentElementsPage
             .getLogs(), "Water: condition changed to true")).as("Not logged").isTrue();
         softAssert.assertAll();
     }
 
-    @And("Checkbox Wind is logged")
-    public void checkboxWindLogged() {
+    @And("Checkbox Wind should be logged")
+    public void checkboxWindShouldBeLogged() {
         softAssert.assertThat(logsContainsItem(differentElementsPage
             .getLogs(), "Wind: condition changed to true")).as("Not logged").isTrue();
         softAssert.assertAll();
     }
 
-    @And("Radiobutton Selen is logged")
-    public void radioButtonSelenLogged() {
+    @And("Radiobutton Selen should be logged")
+    public void radioButtonSelenShouldBeLogged() {
         softAssert.assertThat(logsContainsItem(differentElementsPage
             .getLogs(), "metal: value changed to Selen")).as("Not logged").isTrue();
         softAssert.assertAll();
     }
 
-    @And("Dropdown Yellow is logged")
-    public void dropdownYellowLogged() {
+    @And("Dropdown Yellow should be logged")
+    public void dropdownYellowShouldBeLogged() {
         softAssert.assertThat(logsContainsItem(differentElementsPage
             .getLogs(), "Colors: value changed to Yellow")).as("Not logged").isTrue();
         softAssert.assertAll();
@@ -166,7 +90,7 @@ public class AssertStep extends DriverSetup {
     }
 
     @Then("User table should contain following values:")
-    public void userTableContainValues(DataTable dataTable) {
+    public void userTableShouldContainValues(DataTable dataTable) {
         List<List<String>> userTable = dataTable.rows(1).cells();
         List<String> number = new ArrayList<>();
         List<String> user = new ArrayList<>();
@@ -189,7 +113,7 @@ public class AssertStep extends DriverSetup {
     }
 
     @Then("droplist should contain values in column Type for user {string}")
-    public void droplistContainValuesInColumn(String userName, io.cucumber.datatable.DataTable dataTable) {
+    public void droplistShouldContainValuesInColumn(String userName, io.cucumber.datatable.DataTable dataTable) {
         List<List<String>> valuesTable = dataTable.rows(1).cells();
         List<String> values = new ArrayList<>();
         for (List<String> element : valuesTable) {
@@ -205,7 +129,6 @@ public class AssertStep extends DriverSetup {
     public void logRowHasTextInLogSection(String log) {
         softAssert.assertThat(userTablePage.logsAfterSelectingVipCheckbox(log)).as("Fail").isTrue();
     }
-
 
     private static boolean logsContainsItem(Collection<WebElement> logs, String expectedEntry) {
         for (var logElement : logs) {

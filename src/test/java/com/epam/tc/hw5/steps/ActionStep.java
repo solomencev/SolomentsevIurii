@@ -45,8 +45,8 @@ public class ActionStep extends DriverSetup {
         headerMenu.openDifferentElementPage();
     }
 
-    @When("I click on {string} button in Header")
-    public void openServiceMenuInHeader(String string) {
+    @When("I click on Service button in Header")
+    public void openServiceMenuInHeader() {
         headerMenu.clickServiceMenu();
     }
 

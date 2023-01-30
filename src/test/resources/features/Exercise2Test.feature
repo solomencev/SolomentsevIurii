@@ -3,7 +3,7 @@ Feature: HW5 - BDD
   Scenario: User Table Page test
     Given I open JDI GitHub site
     And Perform login as "Roman" and password "Jdi1234"
-    When I click on "Service" button in Header
+    When I click on Service button in Header
     And I click on "User Table" button in Service dropdown
     Then "User Table" page should be opened
     And 6 Number Type Dropdowns should be displayed on Users Table on User Table Page

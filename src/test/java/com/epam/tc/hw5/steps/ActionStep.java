@@ -42,7 +42,7 @@ public class ActionStep extends DriverSetup {
 
     @When("Open through the header menu Service -> Different Elements Page")
     public void openDifferentElementsPage() {
-        headerMenu.clickServiceMenuAndThenDifferentElementService();
+        headerMenu.openDifferentElementPage();
     }
 
     @When("I click on {string} button in Header")

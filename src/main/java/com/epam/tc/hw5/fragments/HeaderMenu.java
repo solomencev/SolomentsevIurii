@@ -20,7 +20,7 @@ public class HeaderMenu extends BasePage {
         super(driver);
     }
 
-    public void clickServiceMenuAndThenDifferentElementService() {
+    public void openDifferentElementPage() {
         serviceMenuDropDown.click();
         differentElementsServiceElement.click();
     }

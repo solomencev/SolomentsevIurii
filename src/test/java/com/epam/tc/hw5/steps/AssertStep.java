@@ -11,10 +11,8 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
-import org.openqa.selenium.WebElement;
 
 public class AssertStep extends DriverSetup {
 
@@ -43,28 +41,28 @@ public class AssertStep extends DriverSetup {
 
     @Then("Checkbox Water should be logged")
     public void checkboxWaterShouldBeLogged() {
-        softAssert.assertThat(logsContainsItem(differentElementsPage
+        softAssert.assertThat(differentElementsPage.areLogsContainsItem(differentElementsPage
             .getLogs(), "Water: condition changed to true")).as("Not logged").isTrue();
         softAssert.assertAll();
     }
 
     @And("Checkbox Wind should be logged")
     public void checkboxWindShouldBeLogged() {
-        softAssert.assertThat(logsContainsItem(differentElementsPage
+        softAssert.assertThat(differentElementsPage.areLogsContainsItem(differentElementsPage
             .getLogs(), "Wind: condition changed to true")).as("Not logged").isTrue();
         softAssert.assertAll();
     }
 
     @And("Radiobutton Selen should be logged")
     public void radioButtonSelenShouldBeLogged() {
-        softAssert.assertThat(logsContainsItem(differentElementsPage
+        softAssert.assertThat(differentElementsPage.areLogsContainsItem(differentElementsPage
             .getLogs(), "metal: value changed to Selen")).as("Not logged").isTrue();
         softAssert.assertAll();
     }
 
     @And("Dropdown Yellow should be logged")
     public void dropdownYellowShouldBeLogged() {
-        softAssert.assertThat(logsContainsItem(differentElementsPage
+        softAssert.assertThat(differentElementsPage.areLogsContainsItem(differentElementsPage
             .getLogs(), "Colors: value changed to Yellow")).as("Not logged").isTrue();
         softAssert.assertAll();
     }
@@ -128,14 +126,5 @@ public class AssertStep extends DriverSetup {
     @Then("1 log row has {string} text in log section")
     public void logRowHasTextInLogSection(String log) {
         softAssert.assertThat(userTablePage.areLogsDisplayedAfterSelectingVipCheckbox(log)).as("Fail").isTrue();
-    }
-
-    private static boolean logsContainsItem(Collection<WebElement> logs, String expectedEntry) {
-        for (var logElement : logs) {
-            if (logElement.getText().contains(expectedEntry)) {
-                return true;
-            }
-        }
-        return false;
     }
 }

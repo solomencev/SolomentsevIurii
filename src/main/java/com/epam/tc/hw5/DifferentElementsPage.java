@@ -1,5 +1,6 @@
 package com.epam.tc.hw5;
 
+import java.util.Collection;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -42,20 +43,13 @@ public class DifferentElementsPage extends BasePage {
         dropdownYellow.click();
     }
 
-    public boolean isCheckBoxWaterSelected() {
-        return checkBoxWater.isSelected();
-    }
-
-    public boolean isCheckBoxWindSelected() {
-        return checkBoxWind.isSelected();
-    }
-
-    public boolean isRadioButtonSelenSelected() {
-        return radioButtonSelen.isSelected();
-    }
-
-    public boolean isDropdownYellowSelected() {
-        return dropdownYellow.isSelected();
+    public boolean areLogsContainsItem(Collection<WebElement> logs, String expectedEntry) {
+        for (var logElement : logs) {
+            if (logElement.getText().contains(expectedEntry)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public List<WebElement> getLogs() {

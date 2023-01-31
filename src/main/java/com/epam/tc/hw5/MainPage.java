@@ -7,21 +7,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends BasePage {
 
-    @FindBy(className = "benefit-icon")
-    private List<WebElement> listOfImages;
-
-    @FindBy(className = "benefit-txt")
-    private List<WebElement> listOfTextUnderImages;
-
-    @FindBy(id = "frame")
-    private WebElement frame;
-
-    @FindBy(id = "frame-button")
-    private WebElement frameButton;
-
-    @FindBy(xpath = "//*[@class='sidebar-menu left']/li")
-    private List<WebElement> leftMenu;
-
     @FindBy(css = "li.uui-profile-menu")
     private WebElement loginDropdown;
 
@@ -64,29 +49,5 @@ public class MainPage extends BasePage {
 
     public String getUserName() {
         return loginName.getText();
-    }
-
-    public List<WebElement> getMenuList() {
-        return itemsInHeader;
-    }
-
-    public List<WebElement> getListOfImages() {
-        return listOfImages;
-    }
-
-    public List<WebElement> getListOfTextUnderImages() {
-        return listOfTextUnderImages;
-    }
-
-    public WebElement getFrame() {
-        return frame;
-    }
-
-    public List<WebElement> getLeftMenu() {
-        return leftMenu;
-    }
-
-    public WebElement getFrameButton() {
-        return frameButton;
     }
 }

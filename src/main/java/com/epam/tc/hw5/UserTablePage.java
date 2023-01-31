@@ -87,7 +87,7 @@ public class UserTablePage extends BasePage {
               .click();
     }
 
-    public boolean logsAfterSelectingVipCheckbox(String logText) {
+    public boolean areLogsDisplayedAfterSelectingVipCheckbox(String logText) {
         By logPath = new By.ByXPath("//li[contains(. ,'" + logText + "')]");
         WebElement log = driver.findElement(logPath);
         return log.isDisplayed();

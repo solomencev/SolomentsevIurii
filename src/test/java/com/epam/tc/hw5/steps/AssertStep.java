@@ -127,7 +127,7 @@ public class AssertStep extends DriverSetup {
 
     @Then("1 log row has {string} text in log section")
     public void logRowHasTextInLogSection(String log) {
-        softAssert.assertThat(userTablePage.logsAfterSelectingVipCheckbox(log)).as("Fail").isTrue();
+        softAssert.assertThat(userTablePage.areLogsDisplayedAfterSelectingVipCheckbox(log)).as("Fail").isTrue();
     }
 
     private static boolean logsContainsItem(Collection<WebElement> logs, String expectedEntry) {

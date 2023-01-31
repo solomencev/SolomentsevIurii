@@ -40,7 +40,6 @@ public class MainPage extends BasePage {
     @FindBy(css = ".uui-navigation.nav.navbar-nav.m-l8>li")
     private List<WebElement> itemsInHeader;
 
-    public static final String ID_FRAME = "frame";
     public static final String HOME_PAGE = "Home Page";
     public static final String URL_HOME_PAGE = "https://jdi-testing.github.io/jdi-light/index.html";
 

@@ -62,14 +62,6 @@ public class MainPage extends BasePage {
         loginSubmit.click();
     }
 
-    public void switchToFrame(String frame) {
-        driver.switchTo().frame(frame);
-    }
-
-    public void switchToHomePage() {
-        driver.switchTo().defaultContent();
-    }
-
     public String getUserName() {
         return loginName.getText();
     }

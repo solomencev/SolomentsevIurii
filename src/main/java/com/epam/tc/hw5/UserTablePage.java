@@ -10,8 +10,6 @@ import org.openqa.selenium.support.FindBy;
 public class UserTablePage extends BasePage {
     
     public static final String USER_TABLE_TAB = "User Table";
-    @FindBy(xpath = "//tbody//select")
-    public List<WebElement> listOfDropdowns;
 
     @FindBy(css = "td > a")
     private List<WebElement> listOfUsernames;

@@ -11,7 +11,7 @@ public class AssertStep extends BaseStep {
 
     @Step("Browser title equals 'Home Page' {title}")
     public void assertBrowserTitle(String title) {
-        softAssert.assertThat(webDriver.getTitle()).as("Incorrect title").isEqualTo(title);
+        softAssert.assertThat(mainPage.getBrowserTitleName()).as("Incorrect title").isEqualTo(title);
         softAssert.assertAll();
     }
 

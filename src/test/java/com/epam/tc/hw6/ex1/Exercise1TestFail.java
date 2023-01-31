@@ -14,7 +14,7 @@ public class Exercise1TestFail extends AbstractChromeTest {
     /* Set as 3 for test fail */
     private static final int COUNT_OF_IMAGES_MAIN_PAGE = 7;
 
-    @Test(groups = {"HW4"})
+    @Test(groups = {"HW6"})
     @Description(value = "Test case for Exercise #1")
     @Feature("Feature One")
     @Story("Index Page")

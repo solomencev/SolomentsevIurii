@@ -15,7 +15,7 @@ public class Exercise2Test extends AbstractChromeTest {
         .of("Colors: value changed to Yellow", "metal: value changed to Selen", "Wind: condition changed to true",
             "Water: condition changed to true");
 
-    @Test(groups = {"HW4"})
+    @Test(groups = {"HW6"})
     @Description(value = "Test case for Exercise #2")
     @Feature("Feature One")
     @Story("Different Elements Page")

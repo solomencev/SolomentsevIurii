@@ -13,7 +13,7 @@ public class Exercise1Test extends AbstractChromeTest {
 
     private static final int COUNT_OF_IMAGES_MAIN_PAGE = 4;
 
-    @Test(groups = {"HW4"})
+    @Test(groups = {"HW6"})
     @Description(value = "Test case for Exercise #1")
     @Feature("Feature One")
     @Story("Index Page")

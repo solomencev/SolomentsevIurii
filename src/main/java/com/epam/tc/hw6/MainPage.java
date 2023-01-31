@@ -52,6 +52,10 @@ public class MainPage extends BasePage {
         driver.get(URL_HOME_PAGE);
     }
 
+    public String getBrowserTitleName() {
+        return driver.getTitle();
+    }
+
     public void login(String user, String password)  {
         loginDropdown.click();
         loginInput.sendKeys(user);

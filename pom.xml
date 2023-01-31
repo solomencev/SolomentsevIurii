@@ -155,7 +155,7 @@
             </properties>
         </profile>
         <profile>
-            <id>HW6Local</id>
+            <id>HW6Tests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>

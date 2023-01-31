@@ -32,6 +32,4 @@ public class HeaderMenu extends BasePage {
     public void clickUserTablePageElement() {
         userTablePageElement.click();
     }
-
-
 }

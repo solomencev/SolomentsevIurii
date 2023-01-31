@@ -20,7 +20,7 @@ public class ActionStep extends DriverSetup {
         mainPage.openMainPage();
     }
 
-    @When("Perform login as {string} and password {string}")
+    @When("I perform login as {string} and password {string}")
     public void performLogin(String user, String password) {
         mainPage.login(user, password);
     }

@@ -35,8 +35,8 @@ public class ActionStep extends DriverSetup {
         headerMenu.clickServiceMenu();
     }
 
-    @When("I click on {string} button in Service dropdown")
-    public void openUserTablePage(String string) {
+    @When("I click on User Table button in Service dropdown")
+    public void openUserTablePage() {
         headerMenu.clickUserTablePageElement();
     }
 

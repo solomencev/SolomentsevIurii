@@ -4,7 +4,7 @@ Feature: HW5 - BDD
     Given I open JDI GitHub site
     And I perform login as "Roman" and password "Jdi1234"
     When I click on Service button in Header
-    And I click on "User Table" button in Service dropdown
+    And I click on User Table button in Service dropdown
     Then User Table page should be opened
     And 6 Number Type Dropdowns should be displayed on Users Table on User Table Page
     And 6 Usernames should be displayed on Users Table on User Table Page

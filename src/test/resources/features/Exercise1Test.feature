@@ -5,7 +5,7 @@ Feature: HW5 - BDD
     Then Browser title should be 'Home Page'
     And I perform login as "Roman" and password "Jdi1234"
     Then User is logged as "ROMAN IOVLEV"
-    When Open through the header menu Service -> Different Elements Page
+    When I open through the header menu Service -> Different Elements Page
     And I select checkbox Wind
     And I select checkbox Water
     And I select radio Selen

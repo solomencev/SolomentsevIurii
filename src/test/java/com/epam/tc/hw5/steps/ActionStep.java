@@ -25,7 +25,7 @@ public class ActionStep extends DriverSetup {
         mainPage.login(user, password);
     }
 
-    @When("Open through the header menu Service -> Different Elements Page")
+    @When("I open through the header menu Service -> Different Elements Page")
     public void openDifferentElementsPage() {
         headerMenu.openDifferentElementPage();
     }

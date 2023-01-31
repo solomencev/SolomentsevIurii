@@ -25,15 +25,6 @@ public class UserTablePage extends BasePage {
     @FindBy(css = "tbody > tr")
     private List<WebElement> numberTypeDropdowns;
 
-    @FindBy(xpath = "//tbody//tr[1]//td//select//option")
-    public List<WebElement> firstDropdownValues;
-
-    @FindBy(css = "#user-table > tbody > tr")
-    private List<WebElement> userTableRows;
-
-    @FindBy(css = ".logs li")
-    private List<WebElement> logs;
-
     @FindBy(css = ".user-descr > span")
     private List<WebElement> listOfDescriptionText;
 

@@ -29,8 +29,8 @@ public class AssertStep extends DriverSetup {
         softAssert.assertAll();
     }
 
-    @Then("{string} page should be opened")
-    public void assertUserTableIsOpened(String title) {
+    @Then("User Table page should be opened")
+    public void assertUserTableIsOpened() {
         softAssert.assertThat(mainPage.getBrowserTitleName()).as("Incorrect title").isEqualTo(USER_TABLE_TAB);
         softAssert.assertAll();
     }

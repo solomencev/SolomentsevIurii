@@ -24,13 +24,13 @@ public class AssertStep extends DriverSetup {
     UserTablePage userTablePage = new UserTablePage(driver);
 
     @Then("Browser title should be 'Home Page'")
-    public void assertUserTablePageIsOpened() {
+    public void assertHomePageIsOpened() {
         softAssert.assertThat(userTablePage.getBrowserTitleName()).as("Incorrect title").isEqualTo(HOME_PAGE);
         softAssert.assertAll();
     }
 
     @Then("{string} page should be opened")
-    public void assertHomePageIsOpened(String title) {
+    public void assertUserTableIsOpened(String title) {
         softAssert.assertThat(mainPage.getBrowserTitleName()).as("Incorrect title").isEqualTo(USER_TABLE_TAB);
         softAssert.assertAll();
     }

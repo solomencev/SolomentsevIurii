@@ -1,6 +1,5 @@
 package com.epam.tc.hw5;
 
-import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,9 +20,6 @@ public class MainPage extends BasePage {
 
     @FindBy(id = "user-name")
     private WebElement loginName;
-
-    @FindBy(css = ".uui-navigation.nav.navbar-nav.m-l8>li")
-    private List<WebElement> itemsInHeader;
 
     public static final String HOME_PAGE = "Home Page";
     public static final String URL_HOME_PAGE = "https://jdi-testing.github.io/jdi-light/index.html";

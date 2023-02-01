@@ -35,7 +35,6 @@ public abstract class AbstractChromeTest {
     public String userFullName = getUserFullNameFromProperties();
 
     @BeforeClass(alwaysRun = true)
-    //@Parameters({"isLocal", "hub", "browser"})
     public void setup(ITestContext context) {
         var webDriver = WebDriverSingleton.getDriver();
         assertStep = new AssertStep(webDriver);

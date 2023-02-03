@@ -13,6 +13,4 @@ public class JdiSiteTest extends AbstractTest {
         JdiSite.metalsAndColorsPage.fillMetalAndColorForm(metalsAndColors);
         JdiSite.verifyResultLog(metalsAndColors);
     }
-
-
 }

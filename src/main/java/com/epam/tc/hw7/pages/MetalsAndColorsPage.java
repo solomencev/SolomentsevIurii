@@ -7,6 +7,7 @@ import com.epam.tc.hw7.forms.MetalsAndColorsForm;
 import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
+import org.openqa.selenium.WebElement;
 
 public class MetalsAndColorsPage extends WebPage {
 
@@ -26,13 +27,10 @@ public class MetalsAndColorsPage extends WebPage {
     }
 
     public List<String> actualResultLog() {
-        List<String> result = new ArrayList<>();
-
-        log.stream()
-           .forEach(els -> {
-               result.add(els.getText());
-           });
-
-        return result;
+        List<String> actualResult = new ArrayList<>();
+        for (WebElement logElement : log) {
+            actualResult.add(logElement.getText());
+        }
+        return actualResult;
     }
 }

@@ -5,16 +5,10 @@ import com.epam.jdi.light.elements.complex.WebList;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.ui.html.elements.common.Icon;
-import com.epam.tc.hw7.Config;
 import com.epam.tc.hw7.forms.LoginForm;
 import jdi.entities.User;
 
 public class JdiHomePage extends WebPage {
-
-    public static final User ROMAN_IOVLEV = new User(
-        Config.getUserNameFromProperties(),
-        Config.getUserPasswordFromProperties(),
-        Config.getUserFullNameFromProperties());
 
     @FindBy(css = ".benefit")
     public WebList benefit;

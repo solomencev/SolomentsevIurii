@@ -1,7 +1,5 @@
 package com.epam.tc.hw7;
 
-import static com.epam.tc.hw7.pages.JdiHomePage.ROMAN_IOVLEV;
-
 import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 

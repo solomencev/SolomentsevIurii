@@ -13,6 +13,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <aspectj.version>1.9.19</aspectj.version>
+        <rest-assured.version>5.3.0</rest-assured.version>
     </properties>
 
     <dependencies>
@@ -103,6 +104,13 @@
             <artifactId>assertj-core</artifactId>
             <version>3.23.1</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -204,11 +212,17 @@
         </profile>
         <profile>
             <id>HW7Test</id>
+            <properties>
+                <suite.xml.file>hw7test.xml</suite.xml.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>HW</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml.file>hw7test.xml</suite.xml.file>
+                <suite.xml.file>hw9test.xml</suite.xml.file>
             </properties>
         </profile>
         <profile>
